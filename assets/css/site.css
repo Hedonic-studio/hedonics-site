@@ -16,6 +16,10 @@
   --signal: #E23D28;
   --instrument-light: #7A00F2; /* data on light grounds */
   --instrument-dark: #8218FF;  /* data on Ink */
+  /* Signal as a large fill reads brighter and more orange than Signal as a stroke (area effect).
+     Solid blocks (buttons, filled tags) take this deeper value so they read as the same red as the mark. */
+  --signal-fill: #C8301F;
+  --signal-fill-hover: #B02A1B;
 
   /* Sanctioned derived values */
   --hairline-ink: #2A2A2C;
@@ -52,7 +56,7 @@ h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.skip { position: absolute; left: -9999px; top: 8px; background: var(--signal); color: var(--bone); padding: 8px 16px; z-index: 100; }
+.skip { position: absolute; left: -9999px; top: 8px; background: var(--signal-fill); color: var(--bone); padding: 8px 16px; z-index: 100; }
 .skip:focus { left: 8px; }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 
@@ -104,13 +108,13 @@ p + p { margin-top: 16px; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: 48px; padding: 0 24px;
-  background: var(--signal); color: var(--bone);
-  border: 1.5px solid var(--signal); border-radius: 0;
+  background: var(--signal-fill); color: var(--bone);
+  border: 1.5px solid var(--signal-fill); border-radius: 0;
   font: 600 13px/1 var(--font-display); letter-spacing: 0.12em; text-transform: uppercase;
   text-decoration: none; cursor: pointer;
   transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
 }
-.btn:hover { background: #c9321f; border-color: #c9321f; }
+.btn:hover { background: var(--signal-fill-hover); border-color: var(--signal-fill-hover); }
 .btn--ghost { background: transparent; color: inherit; border-color: var(--rule-major-on-ink); }
 .bone .btn--ghost { border-color: var(--rule-major); }
 .btn--ghost:hover { background: transparent; border-color: currentColor; }
@@ -212,7 +216,7 @@ p + p { margin-top: 16px; }
   border: 1px solid var(--rule-major); color: var(--ink-65); white-space: nowrap;
 }
 .ink .tag { border-color: var(--rule-major-on-ink); color: var(--bone-70); }
-.tag--signal, .ink .tag--signal { background: var(--signal); border-color: var(--signal); color: var(--bone); }
+.tag--signal, .ink .tag--signal { background: var(--signal-fill); border-color: var(--signal-fill); color: var(--bone); }
 
 .svc { padding: 32px; border: 1.5px solid var(--rule-major); background: transparent; }
 .svc > * + * { margin-top: 16px; }
