@@ -26,5 +26,5 @@ window.HEDONICS_FOOTAGE = {
   "work-04":     "",   // Work grid · Wide 01 · 16:9 · ad creative
   "work-05":     "",   // Work grid · Wide 02 · 16:9 · Game Day highlight
 
-  "about-photo": ""    // About section · 4:5 portrait of you
+  "about-photo": "assets/img/about-jake.webp"    // About section · 4:5 portrait of you
 };
