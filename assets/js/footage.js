@@ -20,11 +20,11 @@ window.HEDONICS_FOOTAGE = {
   "case-cfws":   "",   // CrossFit Wilmington Strength · 16:9
   "case-tl":     "",   // Transparent Labs Iceland BTS · 16:9
 
-  "work-01":     "",   // Work grid · Reel 01 · 9:16 · gym promo
-  "work-02":     "",   // Work grid · Reel 02 · 9:16 · member testimonial
-  "work-03":     "",   // Work grid · Reel 03 · 9:16 · educational / talking head
-  "work-04":     "",   // Work grid · Wide 01 · 16:9 · ad creative
-  "work-05":     "",   // Work grid · Wide 02 · 16:9 · Game Day highlight
+  "work-01":     "https://youtube.com/shorts/hK5U14LoKhA",   // Work grid · Reel 01 · 9:16 · gym promo
+  "work-02":     "assets/img/Axis_Test_Woman%20Bench.jpg",   // Work grid · Reel 02 · 9:16 · member testimonial
+  "work-03":     "https://youtube.com/shorts/roi7cpzjThU",   // Work grid · Reel 03 · 9:16 · educational / talking head
+  "work-04":     "https://youtu.be/VruJuE7d8vc",   // Work grid · Wide 01 · 16:9 · ad creative
+  "work-05":     "https://youtu.be/8wsn8em40kA",   // Work grid · Wide 02 · 16:9 · organic-style ad (Q&A)
 
   "about-photo": "assets/img/about-jake.webp"    // About section · 4:5 portrait of you
 };
