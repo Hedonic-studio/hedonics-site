@@ -186,6 +186,16 @@
     });
   }
 
+  /* ---------- Problem section: draw the upward break when it scrolls into view ---------- */
+  var contrast = document.querySelector(".contrast");
+  if (contrast && "IntersectionObserver" in window) {
+    contrast.classList.add("contrast--anim");
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { contrast.classList.add("is-in"); cio.disconnect(); } });
+    }, { threshold: 0.35 });
+    cio.observe(contrast);
+  }
+
   /* ---------- Year ---------- */
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
