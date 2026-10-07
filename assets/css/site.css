@@ -388,3 +388,56 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .mobile-cta.is-hidden { transform: translateY(140%); opacity: 0; pointer-events: none; }
   .footer { padding-bottom: 96px; }
 }
+
+/* Oct 2026: packages rebuilt for scanning: pick by need, one comparison grid, add-ons together */
+.pick__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.pick__card { display: block; padding: 20px 24px; border: 1.5px solid var(--rule-major); color: var(--ink); text-decoration: none; transition: border-color 160ms var(--ease), background-color 160ms var(--ease); }
+.pick__card:hover, .pick__card:focus-visible { border-color: var(--ink); background: rgba(14,14,15,0.04); }
+.pick__need { display: block; font: 600 18px/24px var(--font-display); letter-spacing: -0.01em; }
+.pick__answer { display: block; margin-top: 10px; font-size: 15px; line-height: 20px; color: var(--ink-65); }
+.pick__answer::before { content: "→ "; color: var(--signal); }
+.pick__answer strong { color: var(--ink); font-weight: 600; }
+
+.split__body--cont { grid-column: 2; margin-top: 32px; }
+.pkg-wide { grid-column: 1 / -1; margin-top: 32px; }
+.pkg-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1.5px solid var(--rule-major); }
+.pkg { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; padding: 0 20px; border-left: 1.5px solid var(--rule-major); scroll-margin-top: 96px; }
+.pkg:first-child { border-left: 0; }
+.pkg > * { padding: 14px 0; border-top: 1px solid var(--rule-minor); }
+.pkg > :first-child { border-top: 0; padding-top: 24px; }
+.pkg > :last-child { padding-bottom: 24px; }
+.pkg__type { font: 600 11px/13px var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-65); }
+.pkg__name { margin-top: 8px; font: 600 24px/28px var(--font-display); letter-spacing: -0.01em; }
+.pkg__flag { display: inline-block; margin-top: 12px; padding: 5px 8px; background: var(--signal-fill); color: var(--bone); font: 600 10px/12px var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; }
+.pkg__k { margin-bottom: 6px; font: 600 10px/12px var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-65); }
+.pkg__row p:not(.pkg__k) { font-size: 15px; line-height: 22px; }
+.pkg--feature { background: var(--ink); color: var(--bone); }
+.pkg--feature > * { border-top-color: var(--rule-minor-on-ink); }
+.pkg--feature .pkg__type, .pkg--feature .pkg__k { color: var(--bone-70); }
+.pkg:target { outline: 2px solid var(--signal); outline-offset: -2px; }
+
+.pkg-notes { max-width: 860px; font-size: 14px; line-height: 21px; color: var(--ink-65); }
+.addons__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px; }
+.addon { padding: 24px; border: 1.5px solid var(--rule-major); }
+.addon > * + * { margin-top: 8px; }
+.addon__name { font: 600 20px/26px var(--font-display); letter-spacing: -0.01em; }
+.addon__when { font: 600 10px/12px var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-65); }
+.addon p:last-child { font-size: 15px; line-height: 22px; }
+.unsure { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; padding: 28px 32px; background: var(--ink); color: var(--bone); }
+.unsure p { max-width: 520px; color: var(--bone-70); }
+.unsure strong { color: var(--bone); }
+
+@media (max-width: 1080px) {
+  .split__body--cont { grid-column: auto; }
+  .pkg-grid { grid-template-columns: 1fr 1fr; }
+  .pkg:nth-child(3) { border-left: 0; }
+  .pkg:nth-child(n+3) { border-top: 1.5px solid var(--rule-major); }
+}
+@media (max-width: 820px) {
+  .pick__grid, .addons__grid { grid-template-columns: 1fr; }
+  .pkg-grid { grid-template-columns: 1fr; gap: 16px; border: 0; }
+  .pkg, .pkg:first-child, .pkg:nth-child(3), .pkg:nth-child(n+3) { display: block; grid-row: auto; border: 1.5px solid var(--rule-major); }
+  .pkg--feature { border-color: var(--ink); }
+  .unsure { padding: 24px; }
+  .unsure .btn { flex: 1 1 100%; }
+}
