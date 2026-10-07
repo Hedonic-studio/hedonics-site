@@ -350,3 +350,10 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .hero__ctas .btn { flex: 1 1 100%; }
   .mark { height: 18px; }
 }
+
+/* About photo: stretch to match the text column's height on two-column layouts (Oct 2026) */
+@media (min-width: 821px) {
+  .split__body.about { align-items: stretch; }
+  .about__photo { display: flex; }
+  .about__photo .slot--4x5 { aspect-ratio: auto; height: 100%; min-height: 480px; }
+}
