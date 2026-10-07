@@ -92,7 +92,13 @@
       el.src = src;
       el.playsInline = true;
       el.preload = "metadata";
-      if (isHero) { el.muted = true; el.autoplay = true; el.loop = true; }
+      if (isHero) {
+        el.muted = true; el.defaultMuted = true; el.setAttribute("muted", "");
+        el.autoplay = true; el.loop = true; el.preload = "auto";
+        var kick = function () { var p = el.play(); if (p && p.catch) p.catch(function () {}); };
+        el.addEventListener("canplay", kick, { once: true });
+        setTimeout(kick, 0);
+      }
       else { el.controls = true; }
     }
     slot.appendChild(el);
