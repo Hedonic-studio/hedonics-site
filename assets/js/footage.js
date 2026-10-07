@@ -17,8 +17,8 @@ window.HEDONICS_FOOTAGE = {
   "hero-reel":   "",   // Top of the page · 16:9 showreel, 30–60s
 
   "case-psx":    "",   // PaulSklarXFit result · 9:16 vertical
-  "case-cfws":   "",   // CrossFit Wilmington Strength · 16:9
-  "case-tl":     "",   // Transparent Labs Iceland BTS · 16:9
+  "case-cfws":   "assets/img/case-cfws.webp",   // CrossFit Wilmington Strength · 16:9
+  "case-tl":     "assets/img/case-tl.webp",   // Transparent Labs Iceland BTS · 16:9
 
   "work-01":     "https://youtube.com/shorts/hK5U14LoKhA",   // Work grid · Reel 01 · 9:16 · gym promo
   "work-02":     "assets/img/Axis_Test_Woman%20Bench.jpg",   // Work grid · Reel 02 · 9:16 · member testimonial
@@ -27,4 +27,13 @@ window.HEDONICS_FOOTAGE = {
   "work-05":     "https://youtu.be/8wsn8em40kA",   // Work grid · Wide 02 · 16:9 · organic-style ad (Q&A)
 
   "about-photo": "assets/img/about-jake.webp"    // About section · 4:5 portrait of you
+};
+
+/* Custom thumbnails for the YouTube spots (shown with the play button until clicked).
+   Leave a spot out and it uses YouTube's own thumbnail. */
+window.HEDONICS_POSTERS = {
+  "work-01": "assets/img/work-01.webp",
+  "work-03": "assets/img/work-03.webp",
+  "work-04": "assets/img/work-04.webp",
+  "work-05": "assets/img/work-05.webp"
 };
