@@ -35,7 +35,8 @@
     img.decoding = "async";
     img.onload = function () { if (img.naturalWidth <= 120 && img.src !== fallback) img.src = fallback; };
     img.onerror = function () { if (img.src !== fallback) img.src = fallback; };
-    img.src = "https://i.ytimg.com/vi/" + id + "/" + (tall ? "oar2.jpg" : "maxresdefault.jpg");
+    var poster = (window.HEDONICS_POSTERS || {})[slot.getAttribute("data-footage")];
+    img.src = poster || ("https://i.ytimg.com/vi/" + id + "/" + (tall ? "oar2.jpg" : "maxresdefault.jpg"));
     var play = document.createElement("span");
     play.className = "yt-facade__play";
     play.setAttribute("aria-hidden", "true");
