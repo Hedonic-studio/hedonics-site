@@ -163,6 +163,23 @@
     });
   }
 
+  /* ---------- Mobile button: hide it while a Game Film button is already on screen ---------- */
+  var mcta = document.querySelector(".mobile-cta");
+  if (mcta && "IntersectionObserver" in window) {
+    var onScreen = [];
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var i = onScreen.indexOf(e.target);
+        if (e.isIntersecting && i < 0) onScreen.push(e.target);
+        if (!e.isIntersecting && i > -1) onScreen.splice(i, 1);
+      });
+      mcta.classList.toggle("is-hidden", onScreen.length > 0);
+    });
+    [".hero__ctas", "#svc-game-film", "#game-film"].forEach(function (sel) {
+      var el = document.querySelector(sel); if (el) io.observe(el);
+    });
+  }
+
   /* ---------- Year ---------- */
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
