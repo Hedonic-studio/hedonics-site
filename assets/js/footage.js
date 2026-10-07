@@ -16,9 +16,9 @@
 window.HEDONICS_FOOTAGE = {
   "hero-reel":   "assets/video/hero-reel.mp4",   // Top of the page · 16:9 showreel, 30–60s
 
-  "case-psx":    "assets/img/case-psx.webp",   // PaulSklarXFit result · 9:16 vertical
-  "case-cfws":   "assets/img/case-cfws-v2.webp",   // CrossFit Wilmington Strength · 16:9
-  "case-tl":     "assets/img/case-tl-v2.webp",   // Transparent Labs Iceland BTS · 16:9
+  "case-psx":    "assets/img/case-psx-v2.webp",   // PaulSklarXFit result · 9:16 vertical
+  "case-cfws":   "assets/img/case-cfws-v3.webp",   // CrossFit Wilmington Strength · 16:9
+  "case-tl":     "assets/img/case-tl-v3.webp",   // Transparent Labs Iceland BTS · 16:9
 
   "work-01":     "https://youtube.com/shorts/hK5U14LoKhA",   // Work grid · Reel 01 · 9:16 · gym promo
   "work-02":     "assets/img/work-02.webp",   // Work grid · Reel 02 · 9:16 · member testimonial
