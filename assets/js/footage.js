@@ -14,7 +14,7 @@
    ============================================================ */
 
 window.HEDONICS_FOOTAGE = {
-  "hero-reel":   "",   // Top of the page · 16:9 showreel, 30–60s
+  "hero-reel":   "assets/video/hero-reel.mp4",   // Top of the page · 16:9 showreel, 30–60s
 
   "case-psx":    "assets/img/case-psx.webp",   // PaulSklarXFit result · 9:16 vertical
   "case-cfws":   "assets/img/case-cfws-v2.webp",   // CrossFit Wilmington Strength · 16:9
