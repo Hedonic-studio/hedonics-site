@@ -480,3 +480,40 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .contrast__col { padding: 24px; }
   .contrast__list li { font-size: 17px; line-height: 23px; }
 }
+
+/* Oct 2026: section rhythm, strict black/bone alternation (04 Services on Ink, 05 Process on Bone, 06 About on Ink, 07 Start on Bone) */
+/* 04 Services on Ink */
+.ink .svc--feature { background: transparent; border: 1.5px solid var(--signal); }
+.ink .pick__card { border-color: var(--rule-major-on-ink); color: var(--bone); }
+.ink .pick__card:hover, .ink .pick__card:focus-visible { border-color: var(--bone); background: rgba(244,241,234,0.05); }
+.ink .pick__answer { color: var(--bone-70); }
+.ink .pick__answer strong { color: var(--bone); }
+.ink .pkg-grid, .ink .pkg { border-color: var(--rule-major-on-ink); }
+.ink .pkg > * { border-top-color: var(--rule-minor-on-ink); }
+.ink .pkg__type, .ink .pkg__k { color: var(--bone-70); }
+.ink .pkg--feature { background: var(--bone); color: var(--ink); }
+.ink .pkg--feature > * { border-top-color: var(--rule-minor); }
+.ink .pkg--feature .pkg__type, .ink .pkg--feature .pkg__k { color: var(--ink-65); }
+.ink .pkg-notes { color: var(--bone-70); }
+.ink .addon { border-color: var(--rule-major-on-ink); }
+.ink .addon__when { color: var(--bone-70); }
+.ink .unsure { background: var(--bone); color: var(--ink); }
+.ink .unsure p { color: var(--ink-65); }
+.ink .unsure strong { color: var(--ink); }
+.ink .note { border-top-color: var(--rule-major-on-ink); }
+/* 05 Process on Bone */
+.bone .step { border-top-color: var(--rule-major); }
+.bone .step:first-child { border-top-color: var(--signal); }
+.bone .step__n { color: var(--instrument-light); }
+.bone .step p { color: var(--ink-65); }
+/* 06 About on Ink */
+.ink .kit li { border-color: var(--rule-major-on-ink); color: var(--bone-70); }
+/* 07 Start on Bone */
+.bone .lead { color: var(--ink-65); }
+.bone .contact a { border-bottom-color: var(--rule-major); }
+.bone .form { border: 1.5px solid var(--rule-major); }
+.bone .form label, .bone .form__note { color: var(--ink-65); }
+@media (max-width: 820px) {
+  .ink .pkg, .ink .pkg:first-child, .ink .pkg:nth-child(3), .ink .pkg:nth-child(n+3) { border-color: var(--rule-major-on-ink); }
+  .ink .pkg--feature { border-color: var(--bone); }
+}
