@@ -25,17 +25,186 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Hedonics Video Marketing",
-  "url": "https://hedonicsmarketing.studio/",
-  "image": "https://hedonicsmarketing.studio/assets/img/og-cover.png",
-  "email": "jake@hedonicsmarketing.studio",
-  "telephone": "+1-704-998-9915",
-  "founder": { "@type": "Person", "name": "Jake Sklar" },
-  "areaServed": { "@type": "City", "name": "Denver" },
-  "address": { "@type": "PostalAddress", "addressLocality": "Denver", "addressRegion": "CO", "addressCountry": "US" },
-  "sameAs": ["https://www.instagram.com/hedonics_marketing/"],
-  "description": "Paid and organic video marketing for gyms, studios and health brands."
+  "@graph": [
+    {
+      "@type": [
+        "ProfessionalService",
+        "LocalBusiness"
+      ],
+      "@id": "https://hedonicsmarketing.studio/#business",
+      "name": "Hedonics Video Marketing",
+      "alternateName": "Hedonics Marketing",
+      "url": "https://hedonicsmarketing.studio/",
+      "logo": "https://hedonicsmarketing.studio/assets/img/apple-touch-icon.png",
+      "image": [
+        "https://hedonicsmarketing.studio/assets/img/og-cover.png",
+        "https://hedonicsmarketing.studio/assets/img/about-jake.webp"
+      ],
+      "email": "jake@hedonicsmarketing.studio",
+      "telephone": "+1-704-998-9915",
+      "description": "Denver video marketing agency for gyms, fitness studios and health brands. Paid and organic video handled start to finish: strategy, scripting, on-site shoots, editing, Meta ad campaigns and monthly reporting.",
+      "slogan": "Video that has to move a number.",
+      "founder": {
+        "@type": "Person",
+        "name": "Jake Sklar",
+        "jobTitle": "Founder"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Denver",
+        "addressRegion": "CO",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver, CO"
+        },
+        {
+          "@type": "City",
+          "name": "Boulder, CO"
+        },
+        {
+          "@type": "City",
+          "name": "Longmont, CO"
+        },
+        {
+          "@type": "City",
+          "name": "Fort Collins, CO"
+        },
+        {
+          "@type": "City",
+          "name": "Colorado Springs, CO"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "05:30",
+          "closes": "21:00"
+        }
+      ],
+      "knowsAbout": [
+        "Video marketing",
+        "Short-form video production",
+        "Meta ads management",
+        "Gym marketing",
+        "Fitness studio marketing",
+        "Social media content",
+        "Lead follow-up automation"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/hedonics_marketing/"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Hedonics Video Marketing services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Game Film",
+              "description": "Free breakdown of your gym's marketing: Instagram, Google listing, intro offer and ads, reviewed on a 30-minute call with the three things to test first.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fast Twitch",
+              "description": "Paid ads program: monthly shoot day, 6–10 new ads a month with variations, Meta campaigns managed, lead form or landing page kept tuned, monthly report.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Base Building",
+              "description": "Organic content program: monthly shoot day, 12–16 short-form videos and 4 graphics or carousels a month on a posting calendar, monthly report and review call.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Full Program",
+              "description": "Paid and organic together from one strategy: two shoot days a month, everything in Fast Twitch and Base Building, one combined report.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Playbook",
+              "description": "One-time strategy: offer, pricing, audience and competitor diagnosis plus a 90-day content or ad plan your team can run.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Full Cycle",
+              "description": "Add-on: lead follow-up system with instant text-back, nurture and pipeline, plus monthly landing page testing.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Game Day",
+              "description": "Event coverage for competitions, grand openings, seminars and member challenges, with a highlight cut posted while people still care.",
+              "provider": {
+                "@id": "https://hedonicsmarketing.studio/#business"
+              },
+              "areaServed": "Denver, CO"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hedonicsmarketing.studio/#website",
+      "url": "https://hedonicsmarketing.studio/",
+      "name": "Hedonics Video Marketing",
+      "publisher": {
+        "@id": "https://hedonicsmarketing.studio/#business"
+      }
+    }
+  ]
 }
 </script>
 </head>
