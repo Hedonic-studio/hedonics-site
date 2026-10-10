@@ -397,6 +397,8 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 .pick__answer { display: block; margin-top: 10px; font-size: 15px; line-height: 20px; color: var(--ink-65); }
 .pick__answer::before { content: "→ "; color: var(--signal); }
 .pick__answer strong { color: var(--ink); font-weight: 600; }
+.pick__more { display: inline-block; margin-top: 14px; font: 600 12px/16px var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--signal); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.pick__card:hover .pick__more, .pick__card:focus-visible .pick__more { border-bottom-width: 2px; }
 
 .split__body--cont { grid-column: 2; margin-top: 32px; }
 .pkg-wide { grid-column: 1 / -1; margin-top: 32px; }
