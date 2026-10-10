@@ -539,6 +539,7 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 .defn__sense { display: grid; grid-template-columns: 22px 1fr; font-size: 16px; line-height: 24px; color: var(--bone-70); }
 .defn__sense b { font-weight: 700; color: var(--bone); }
 .defn__sense em { color: var(--bone); }
+.defn__sense--only { display: block; }
 @media (max-width: 820px) {
   .defn { grid-template-columns: 1fr; row-gap: 10px; margin-top: 32px; }
 }
