@@ -351,11 +351,18 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .mark { height: 18px; }
 }
 
-/* About photo: keep the portrait's true 4:5 shape and let it follow the longer story while scrolling (Oct 9 2026) */
+/* About photo (Oct 9 2026): equal columns; photo runs alongside the heading and first three paragraphs,
+   the name story and tool tags span the full width underneath so the photo never becomes a sliver. */
 @media (min-width: 821px) {
-  .split__body.about { align-items: start; }
-  .about__photo { position: sticky; top: 104px; }
-  .about__photo .slot--4x5 { aspect-ratio: 4 / 5; height: auto; min-height: 0; }
+  .split__body.about { grid-template-columns: 1fr 1fr; column-gap: 48px; row-gap: 16px; align-items: start; }
+  .about__copy { display: contents; }
+  .about__photo { grid-column: 1; grid-row: 1 / span 4; display: flex; align-self: stretch; }
+  .about__photo .slot--4x5 { aspect-ratio: auto; height: 100%; min-height: 0; }
+  .split__body.about .about__copy > * { grid-column: 2; margin-top: 0; }
+  .about__copy > h2 { margin-bottom: 0; }
+  .split__body.about .about__copy > p:nth-of-type(4),
+  .split__body.about .about__copy > .kit { grid-column: 1 / -1; }
+  .split__body.about .about__copy > p:nth-of-type(4) { margin-top: 16px; }
 }
 
 /* YouTube previews: thumbnail + play button until clicked (Oct 2026) */
