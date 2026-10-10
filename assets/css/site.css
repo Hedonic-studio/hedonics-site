@@ -519,3 +519,12 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .ink .pkg, .ink .pkg:first-child, .ink .pkg:nth-child(3), .ink .pkg:nth-child(n+3) { border-color: var(--rule-major-on-ink); }
   .ink .pkg--feature { border-color: var(--bone); }
 }
+
+/* Oct 9 2026: calmer Services. Game Film keeps the only red; Full Program keeps the only bone block. */
+.ink .pick__answer::before { color: var(--bone-70); }
+.ink .pick__more { margin-top: 12px; font: 500 13px/18px var(--font-body); letter-spacing: 0; text-transform: none; color: var(--bone-70); border-bottom: 1px solid var(--rule-major-on-ink); padding-bottom: 1px; }
+.ink .pick__card:hover .pick__more, .ink .pick__card:focus-visible .pick__more { color: var(--bone); border-bottom: 1px solid var(--bone); }
+.ink .pkg--feature .pkg__flag { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.ink .unsure { background: transparent; color: var(--bone); border: 1.5px solid var(--rule-major-on-ink); }
+.ink .unsure p { color: var(--bone-70); }
+.ink .unsure strong { color: var(--bone); }
