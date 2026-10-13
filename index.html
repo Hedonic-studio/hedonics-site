@@ -247,7 +247,7 @@
     <div class="hero__copy">
       <p class="label">Hedonics Video Marketing · Denver</p>
       <h1 class="display">Video that actually moves numbers.</h1>
-      <p class="lead">Hedonics runs paid and organic video marketing for gyms, studios and health brands as one full cycle. Nothing gets lost in a handoff, and every month answers to your numbers.</p>
+      <p class="lead">Hedonics runs paid and organic video marketing for gyms, studios and health brands as one <a class="term" href="#full-cycle">full cycle</a>. Nothing gets lost in a handoff, and every month answers to your numbers.</p>
       <div class="hero__ctas">
         <a class="btn" href="#game-film">Get your free Game Film</a>
         <a class="btn btn--ghost" href="#services">See the packages</a>
@@ -560,5 +560,18 @@
 
 <script src="assets/js/footage.js"></script>
 <script src="assets/js/site.js"></script>
+<script>
+  // "full cycle" in the hero: scroll to the definition and let it glow for a moment.
+  (function () {
+    var link = document.querySelector('.term'), defn = document.getElementById('full-cycle');
+    if (!link || !defn) return;
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      defn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      defn.classList.remove('is-lit'); void defn.offsetWidth; defn.classList.add('is-lit');
+      setTimeout(function () { defn.classList.remove('is-lit'); }, 1600);
+    });
+  })();
+</script>
 </body>
 </html>
