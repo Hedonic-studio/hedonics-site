@@ -544,8 +544,18 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .defn { grid-template-columns: 1fr; row-gap: 10px; margin-top: 32px; }
 }
 
-/* Small inline definition under the hero lead */
-.defn-sm { margin-top: 16px !important; max-width: 560px; font: 400 14px/21px Georgia, "Times New Roman", serif; color: var(--bone-70); }
-.defn-sm__word { font-weight: 700; color: var(--bone); }
-.defn-sm__pos { font-style: italic; margin-right: 6px; }
-.defn-sm em { color: var(--bone); }
+/* Cycle strip: stages on a dashed treadmill line that breaks upward (the brand gesture). Small by design. */
+.cycle { display: flex; align-items: flex-end; margin: 20px 0 0; padding: 0; list-style: none; max-width: 520px; }
+.cycle__step { position: relative; flex: 1 1 0; padding: 0 0 10px; border-bottom: 1.5px solid var(--rule-major-on-ink); }
+.cycle__step::after { content: ""; position: absolute; right: 0; bottom: -1.5px; width: 12px; height: 1.5px; background: var(--ink); }
+.cycle__n { display: block; font: 600 9px/11px var(--font-display); letter-spacing: 0.28em; color: var(--steel); }
+.cycle__t { display: block; margin-top: 4px; font: 600 12px/15px var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--bone-70); }
+.cycle__break { flex: 0 0 44px; margin-left: 2px; }
+.cycle__break svg { display: block; width: 44px; height: 28px; overflow: visible; }
+.cycle__break polyline { fill: none; stroke: var(--signal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.cycle__break circle { fill: var(--signal); }
+@media (max-width: 760px) {
+  .cycle { flex-wrap: wrap; }
+  .cycle__step { flex: 1 1 30%; margin-bottom: 8px; }
+  .cycle__break { align-self: flex-end; margin-bottom: 8px; }
+}
