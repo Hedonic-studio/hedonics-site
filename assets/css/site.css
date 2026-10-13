@@ -543,3 +543,9 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 @media (max-width: 820px) {
   .defn { grid-template-columns: 1fr; row-gap: 10px; margin-top: 32px; }
 }
+
+/* Small inline definition under the hero lead */
+.defn-sm { margin-top: 16px !important; max-width: 560px; font: 400 14px/21px Georgia, "Times New Roman", serif; color: var(--bone-70); }
+.defn-sm__word { font-weight: 700; color: var(--bone); }
+.defn-sm__pos { font-style: italic; margin-right: 6px; }
+.defn-sm em { color: var(--bone); }
