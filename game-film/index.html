@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Film — Hedonics</title>
+<meta name="description" content="A free live breakdown of your gym's offer, organic and paid marketing. Answer 11 questions, pick a time.">
+<link rel="canonical" href="https://hedonicsmarketing.studio/game-film/">
+<meta name="theme-color" content="#0E0E0F">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Game Film — Hedonics">
+<meta property="og:description" content="A free live breakdown of your gym's offer, organic and paid marketing. Answer 11 questions, pick a time.">
+<meta property="og:image" content="https://hedonicsmarketing.studio/assets/img/og-cover.png">
+<meta property="og:url" content="https://hedonicsmarketing.studio/game-film/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/archivo-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<style>
+  /* Game Film page. Everything below reuses site.css tokens; radius 0 throughout. */
+  .gf-hero { padding: 72px 0 56px; }
+  .gf-hero .display { margin-top: 16px; max-width: 760px; }
+  .gf-hero .lead { margin-top: 20px; max-width: 600px; }
+  .gf-hero .lead strong { color: var(--bone); font-weight: 500; }
+
+  .gf-how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; max-width: 900px; }
+  .gf-how__step { border-top: 1px solid var(--rule-major-on-ink); padding-top: 16px; }
+  .gf-how__step .n { font: 600 11px/13px var(--font-display); letter-spacing: 0.28em; text-transform: uppercase; color: var(--bone-70); }
+  .gf-how__step p { margin-top: 8px; font-size: 15px; line-height: 22px; color: var(--bone-70); }
+  .gf-how__step.is-now { border-top-color: var(--instrument-dark); }
+  .gf-how__step.is-now .n, .gf-how__step.is-now p { color: var(--bone); }
+  .gf-how__step.is-now .n { color: var(--instrument-dark); }
+
+  .gf-section { padding: 64px 0 0; }
+  .gf-section:last-of-type { padding-bottom: 96px; }
+  .gf-section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1.5px solid var(--rule-major); padding-top: 24px; }
+  .gf-section__head h2 { font: 700 28px/32px var(--font-display); letter-spacing: -0.01em; margin-top: 8px; }
+  .gf-section__head p { font-size: 15px; line-height: 22px; color: var(--ink-65); max-width: 420px; }
+  .gf-section .label { color: var(--instrument-light); }
+
+  .gf-frame { margin-top: 24px; background: #fff; border: 1px solid var(--rule-major); }
+  .gf-frame iframe { display: block; width: 100%; border: 0; }
+  .gf-frame--form iframe { height: 2440px; }
+  .gf-frame--cal iframe { height: 900px; }
+  .gf-help { margin-top: 16px; font-size: 15px; line-height: 22px; color: var(--ink-65); }
+  .gf-help a { color: inherit; }
+
+  .gf-assure { padding: 48px 0; border-top: 1px solid var(--rule-minor-on-ink); }
+  .gf-assure p { font: 600 22px/30px var(--font-display); letter-spacing: -0.01em; max-width: 640px; }
+  .gf-contact { margin-top: 24px; display: flex; gap: 8px 24px; flex-wrap: wrap; font-size: 15px; line-height: 22px; color: var(--bone-70); }
+  .gf-contact a { color: inherit; text-decoration: none; }
+  .gf-contact a:hover { color: var(--bone); }
+
+  @media (max-width: 760px) {
+    .gf-hero { padding: 48px 0 40px; }
+    .gf-hero .display { font-size: 36px; line-height: 40px; }
+    .gf-how { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+    .gf-how__step { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: baseline; padding-top: 12px; }
+    .gf-how__step p { margin-top: 0; }
+    .gf-section { padding-top: 40px; }
+    .gf-section:last-of-type { padding-bottom: 64px; }
+    .gf-section__head h2 { font-size: 24px; line-height: 28px; }
+    /* On phones the form is taller; let the iframe scroll internally rather than guess. */
+    .gf-frame--form iframe { height: 1800px; }
+    .gf-frame--cal iframe { height: 980px; }
+    .gf-assure p { font-size: 19px; line-height: 26px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav__inner">
+    <a class="nav__logo" href="/" aria-label="Hedonics, home">
+      <svg class="mark" viewBox="0 54 726 88" role="img" aria-label="Hedonics.">
+        <line class="mark__dash" x1="0" y1="120" x2="26" y2="120"/>
+        <line class="mark__dash" x1="44" y1="120" x2="70" y2="120"/>
+        <line class="mark__dash" x1="88" y1="120" x2="114" y2="120"/>
+        <polyline class="mark__break" points="132,120 168,120 214,64"/>
+        <text class="mark__word" x="250" y="136">HEDONICS<tspan class="mark__dot">.</tspan></text>
+      </svg>
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span>
+      <span class="sr">Menu</span>
+    </button>
+    <nav class="nav__menu" id="nav-menu" aria-label="Main">
+      <a href="/#results">Results</a>
+      <a href="/#work">Work</a>
+      <a href="/#services">Services</a>
+      <a href="/#process">Process</a>
+      <a href="/#about">About</a>
+      <a class="btn btn--sm" href="#form">Start here</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="ink gf-hero">
+    <div class="wrap">
+      <p class="label label--signal">Game Film</p>
+      <h1 class="display">Your gym's marketing, broken down.</h1>
+      <p class="lead">A live walkthrough of what's working, what's leaking, and what we'd fix first across your offer, organic and paid. <strong>Free. About 30 minutes. No pitch deck.</strong></p>
+
+      <ol class="gf-how" aria-label="How it works">
+        <li class="gf-how__step is-now"><span class="n">01</span><p>Answer 11 quick questions (about 3 minutes)</p></li>
+        <li class="gf-how__step"><span class="n">02</span><p>Pick a time below</p></li>
+        <li class="gf-how__step"><span class="n">03</span><p>We show up with your Game Film ready</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bone gf-section" id="form">
+    <div class="wrap">
+      <div class="gf-section__head">
+        <div>
+          <p class="label">Step 1 — The questions</p>
+          <h2>Tell us about your gym.</h2>
+        </div>
+        <p>Your answers are what we build the breakdown from. Nothing here goes further than the call.</p>
+      </div>
+      <div class="gf-frame gf-frame--form">
+        <iframe id="gf-form" src="https://docs.google.com/forms/d/e/1FAIpQLSdgkJJEKOP8mYAsS-bI7vBawToSHH9PvLo2SQoDRMrRr9iIuw/viewform?embedded=true" title="Game Film intake questions" loading="eager">Loading…</iframe>
+      </div>
+      <p class="gf-help">Form not loading? <a href="https://forms.gle/Ez4ryZjcVE8QW2zR9" target="_blank" rel="noopener">Open it in a new tab</a>, then come back here to book.</p>
+    </div>
+  </section>
+
+  <section class="bone gf-section" id="book">
+    <div class="wrap">
+      <div class="gf-section__head">
+        <div>
+          <p class="label">Step 2 — Pick your time</p>
+          <h2>Book your 30-minute call.</h2>
+        </div>
+        <p>Pick the slot that works. You'll get a calendar invite with the video link.</p>
+      </div>
+      <div class="gf-frame gf-frame--cal">
+        <iframe id="gf-cal" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2THT0ECsqEQsvaZ_e2nnyDJ7U-0bfdahvKAzr21rkxcAZrpyAhAChC-YGVLmAqspfSZikm0rnm?gv=true" title="Book your Game Film call" loading="lazy"></iframe>
+      </div>
+      <p class="gf-help">Calendar not loading? <a href="https://calendar.app.google/ttAGR9FidhRqfrs18" target="_blank" rel="noopener">Open the booking page</a>. No time that works? Email <a href="mailto:jake@hedonicsmarketing.studio">jake@hedonicsmarketing.studio</a>.</p>
+    </div>
+  </section>
+
+  <section class="ink gf-assure">
+    <div class="wrap">
+      <p>You'll leave with the breakdown whether or not we ever work together.</p>
+      <div class="gf-contact">
+        <a href="tel:+17209842894">(720) 984-2894</a>
+        <a href="mailto:jake@hedonicsmarketing.studio">jake@hedonicsmarketing.studio</a>
+        <a href="https://www.instagram.com/hedonics_marketing/" target="_blank" rel="noopener">@hedonics_marketing</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer ink">
+  <div class="wrap footer__inner">
+    <svg class="mark mark--sm" viewBox="0 54 726 88" role="img" aria-label="Hedonics.">
+      <line class="mark__dash" x1="0" y1="120" x2="26" y2="120"/>
+      <line class="mark__dash" x1="44" y1="120" x2="70" y2="120"/>
+      <line class="mark__dash" x1="88" y1="120" x2="114" y2="120"/>
+      <polyline class="mark__break" points="132,120 168,120 214,64"/>
+      <text class="mark__word" x="250" y="136">HEDONICS<tspan class="mark__dot">.</tspan></text>
+    </svg>
+    <p class="label label--muted">Measurement over aesthetics</p>
+    <p class="footer__meta">© <span id="yr">2026</span> Hedonics Video Marketing · Denver, CO</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle (same behaviour as site.js, without loading the footage code).
+  (function () {
+    var t = document.querySelector('.nav__toggle'), m = document.getElementById('nav-menu');
+    if (t && m) t.addEventListener('click', function () {
+      var open = t.getAttribute('aria-expanded') === 'true';
+      t.setAttribute('aria-expanded', String(!open));
+      m.classList.toggle('is-open', !open);
+    });
+    var y = document.getElementById('yr'); if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  // When the form submits, Google reloads the iframe with its confirmation screen.
+  // That second load is our cue to mark step 1 done and bring step 2 into view.
+  (function () {
+    var f = document.getElementById('gf-form'), loads = 0;
+    if (!f) return;
+    f.addEventListener('load', function () {
+      loads += 1;
+      if (loads < 2) return;
+      var steps = document.querySelectorAll('.gf-how__step');
+      if (steps.length > 1) { steps[0].classList.remove('is-now'); steps[1].classList.add('is-now'); }
+      f.style.height = '420px';
+      var book = document.getElementById('book');
+      if (book) book.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  })();
+</script>
+</body>
+</html>
