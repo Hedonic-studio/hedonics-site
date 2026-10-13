@@ -27,8 +27,16 @@
   .gf-hero .lead { margin-top: 20px; max-width: 600px; }
   .gf-hero .lead strong { color: var(--bone); font-weight: 500; }
 
-  .gf-hero .display br { display: block; }
-  .gf-hero .display .sub { display: block; color: var(--bone-70); }
+  /* The full cycle, shown not told: six stages on a treadmill line that breaks upward (the brand gesture). */
+  .cycle { display: flex; align-items: flex-end; gap: 0; margin-top: 28px; padding: 0; list-style: none; max-width: 760px; }
+  .cycle__step { position: relative; flex: 1 1 0; padding: 0 0 14px; border-bottom: 1.5px solid var(--rule-major-on-ink); }
+  .cycle__step::after { content: ""; position: absolute; right: 0; bottom: -1.5px; width: 14px; height: 1.5px; background: var(--ink); } /* gap in the line = treadmill dash */
+  .cycle__n { display: block; font: 600 10px/12px var(--font-display); letter-spacing: 0.28em; color: var(--steel); }
+  .cycle__t { display: block; margin-top: 6px; font: 600 15px/18px var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--bone); }
+  .cycle__break { flex: 0 0 64px; margin-left: 2px; }
+  .cycle__break svg { display: block; width: 64px; height: 40px; overflow: visible; }
+  .cycle__break polyline { fill: none; stroke: var(--signal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .cycle__break circle { fill: var(--signal); }
   .gf-hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 
   /* Progress rail: sticks under the nav. Each track fills as you scroll through its section. */
@@ -69,6 +77,11 @@
   @media (max-width: 760px) {
     .gf-hero { padding: 48px 0 40px; }
     .gf-hero .display { font-size: 36px; line-height: 40px; }
+    .cycle { flex-wrap: wrap; margin-top: 20px; }
+    .cycle__step { flex: 1 1 30%; padding-bottom: 10px; margin-bottom: 10px; }
+    .cycle__t { font-size: 13px; line-height: 16px; }
+    .cycle__break { flex: 0 0 48px; margin-left: 0; align-self: flex-end; margin-bottom: 10px; }
+    .cycle__break svg { width: 48px; height: 30px; }
     .gf-hero__ctas { margin-top: 24px; }
     .gf-hero__ctas .btn { flex: 1 1 100%; }
     .gf-rail__inner { gap: 16px; padding-top: 10px; padding-bottom: 10px; }
@@ -78,7 +91,7 @@
     .gf-section:last-of-type { padding-bottom: 64px; }
     .gf-section__head h2 { font-size: 24px; line-height: 28px; }
     /* Phones: the form wraps taller. Tall box beats an inner-scrolling iframe, which traps the thumb. */
-    .gf-frame--form iframe { height: 4400px; }
+    .gf-frame--form iframe { height: 4900px; }
     .gf-frame--cal iframe { height: 980px; }
     .gf-assure p { font-size: 19px; line-height: 26px; }
   }
@@ -118,7 +131,16 @@
   <section class="ink gf-hero">
     <div class="wrap">
       <p class="label label--signal">Game Film · Free</p>
-      <h1 class="display">Your gym's marketing.<br><span class="sub">Full-cycle breakdown and recommendations.</span></h1>
+      <h1 class="display">Your gym's marketing.</h1>
+      <ol class="cycle" aria-label="The full cycle: offer, strategy, shoot, edit, ads, report">
+        <li class="cycle__step"><span class="cycle__n">01</span><span class="cycle__t">Offer</span></li>
+        <li class="cycle__step"><span class="cycle__n">02</span><span class="cycle__t">Strategy</span></li>
+        <li class="cycle__step"><span class="cycle__n">03</span><span class="cycle__t">Shoot</span></li>
+        <li class="cycle__step"><span class="cycle__n">04</span><span class="cycle__t">Edit</span></li>
+        <li class="cycle__step"><span class="cycle__n">05</span><span class="cycle__t">Ads</span></li>
+        <li class="cycle__step"><span class="cycle__n">06</span><span class="cycle__t">Report</span></li>
+        <li class="cycle__break" aria-hidden="true"><svg viewBox="0 0 64 40"><polyline points="2,34 22,34 52,8"/><circle cx="56" cy="5" r="4"/></svg></li>
+      </ol>
       <p class="lead">A live, recorded walkthrough of what's working, what's leaking, and the exact next steps to fix it. <strong>A free 30-minute call, once you've answered the questions and picked a time.</strong></p>
       <div class="gf-hero__ctas">
         <a class="btn" href="#form">Start the questions</a>
