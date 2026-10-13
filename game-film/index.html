@@ -27,15 +27,26 @@
   .gf-hero .lead { margin-top: 20px; max-width: 600px; }
   .gf-hero .lead strong { color: var(--bone); font-weight: 500; }
 
-  .gf-how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; max-width: 900px; }
-  .gf-how__step { border-top: 1px solid var(--rule-major-on-ink); padding-top: 16px; }
-  .gf-how__step .n { font: 600 11px/13px var(--font-display); letter-spacing: 0.28em; text-transform: uppercase; color: var(--bone-70); }
-  .gf-how__step p { margin-top: 8px; font-size: 15px; line-height: 22px; color: var(--bone-70); }
-  .gf-how__step.is-now { border-top-color: var(--instrument-dark); }
-  .gf-how__step.is-now .n, .gf-how__step.is-now p { color: var(--bone); }
-  .gf-how__step.is-now .n { color: var(--instrument-dark); }
+  .gf-hero .display br { display: block; }
+  .gf-hero .display .sub { display: block; color: var(--bone-70); }
+  .gf-hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 
-  .gf-section { padding: 64px 0 0; }
+  /* Progress rail: sticks under the nav. Each track fills as you scroll through its section. */
+  .gf-rail { position: sticky; top: var(--nav-h, 64px); z-index: 40; background: var(--ink); color: var(--bone); border-top: 1px solid var(--hairline-ink); border-bottom: 1px solid var(--hairline-ink); }
+  .gf-rail__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 14px; padding-bottom: 14px; }
+  .gf-track { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; row-gap: 10px; align-items: baseline; text-decoration: none; color: var(--bone-70); }
+  .gf-track .n { font: 600 11px/13px var(--font-display); letter-spacing: 0.28em; text-transform: uppercase; color: var(--steel); }
+  .gf-track .t { font: 600 14px/18px var(--font-display); letter-spacing: 0.02em; }
+  .gf-track .bar { grid-column: 1 / -1; display: block; height: 2px; background: var(--rule-minor-on-ink); overflow: hidden; }
+  .gf-track .bar i { display: block; height: 100%; width: 0; background: var(--instrument-dark); transition: width 120ms linear; }
+  .gf-track.is-active { color: var(--bone); }
+  .gf-track.is-active .n { color: var(--instrument-dark); }
+  .gf-track.is-done { color: var(--bone); }
+  .gf-track.is-done .n { color: var(--bone); }
+  .gf-track.is-done .bar i { width: 100% !important; background: var(--bone); }
+  .gf-track:hover { color: var(--bone); }
+
+  .gf-section { padding: 64px 0 0; scroll-margin-top: calc(var(--nav-h, 64px) + 72px); } /* clears the sticky nav + rail on #form / #book deep links */
   .gf-section:last-of-type { padding-bottom: 96px; }
   .gf-section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1.5px solid var(--rule-major); padding-top: 24px; }
   .gf-section__head h2 { font: 700 28px/32px var(--font-display); letter-spacing: -0.01em; margin-top: 8px; }
@@ -44,7 +55,7 @@
 
   .gf-frame { margin-top: 24px; background: #fff; border: 1px solid var(--rule-major); }
   .gf-frame iframe { display: block; width: 100%; border: 0; }
-  .gf-frame--form iframe { height: 2440px; }
+  .gf-frame--form iframe { height: 3900px; }
   .gf-frame--cal iframe { height: 900px; }
   .gf-help { margin-top: 16px; font-size: 15px; line-height: 22px; color: var(--ink-65); }
   .gf-help a { color: inherit; }
@@ -58,14 +69,16 @@
   @media (max-width: 760px) {
     .gf-hero { padding: 48px 0 40px; }
     .gf-hero .display { font-size: 36px; line-height: 40px; }
-    .gf-how { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
-    .gf-how__step { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: baseline; padding-top: 12px; }
-    .gf-how__step p { margin-top: 0; }
+    .gf-hero__ctas { margin-top: 24px; }
+    .gf-hero__ctas .btn { flex: 1 1 100%; }
+    .gf-rail__inner { gap: 16px; padding-top: 10px; padding-bottom: 10px; }
+    .gf-track { row-gap: 8px; }
+    .gf-track .t { font-size: 12px; line-height: 16px; }
     .gf-section { padding-top: 40px; }
     .gf-section:last-of-type { padding-bottom: 64px; }
     .gf-section__head h2 { font-size: 24px; line-height: 28px; }
-    /* On phones the form is taller; let the iframe scroll internally rather than guess. */
-    .gf-frame--form iframe { height: 1800px; }
+    /* Phones: the form wraps taller. Tall box beats an inner-scrolling iframe, which traps the thumb. */
+    .gf-frame--form iframe { height: 4400px; }
     .gf-frame--cal iframe { height: 980px; }
     .gf-assure p { font-size: 19px; line-height: 26px; }
   }
@@ -104,26 +117,31 @@
 
   <section class="ink gf-hero">
     <div class="wrap">
-      <p class="label label--signal">Game Film</p>
-      <h1 class="display">Your gym's marketing, broken down.</h1>
-      <p class="lead">A live walkthrough of what's working, what's leaking, and what we'd fix first across your offer, organic and paid. <strong>Free. About 30 minutes. No pitch deck.</strong></p>
-
-      <ol class="gf-how" aria-label="How it works">
-        <li class="gf-how__step is-now"><span class="n">01</span><p>Answer 11 quick questions (about 3 minutes)</p></li>
-        <li class="gf-how__step"><span class="n">02</span><p>Pick a time below</p></li>
-        <li class="gf-how__step"><span class="n">03</span><p>We show up with your Game Film ready</p></li>
-      </ol>
+      <p class="label label--signal">Game Film · Free</p>
+      <h1 class="display">Your gym's marketing.<br><span class="sub">Full-cycle breakdown and recommendations.</span></h1>
+      <p class="lead">A live, recorded walkthrough of what's working, what's leaking, and the exact next steps to fix it. <strong>A free 30-minute call, once you've answered the questions and picked a time.</strong></p>
+      <div class="gf-hero__ctas">
+        <a class="btn" href="#form">Start the questions</a>
+        <a class="btn btn--ghost" href="#book">Pick your time</a>
+      </div>
     </div>
   </section>
+
+  <div class="gf-rail" id="gf-rail" aria-label="Your progress">
+    <div class="wrap gf-rail__inner">
+      <a class="gf-track is-active" href="#form" data-track="form"><span class="n">Step 01</span><span class="t">Answer the questions</span><span class="bar"><i></i></span></a>
+      <a class="gf-track" href="#book" data-track="book"><span class="n">Step 02</span><span class="t">Pick your time</span><span class="bar"><i></i></span></a>
+    </div>
+  </div>
 
   <section class="bone gf-section" id="form">
     <div class="wrap">
       <div class="gf-section__head">
         <div>
           <p class="label">Step 1 — The questions</p>
-          <h2>Tell us about your gym.</h2>
+          <h2>Answer the questions.</h2>
         </div>
-        <p>Your answers are what we build the breakdown from. Nothing here goes further than the call.</p>
+        <p>About three minutes. Your answers are what we build the breakdown from, and they go no further than the call.</p>
       </div>
       <div class="gf-frame gf-frame--form">
         <iframe id="gf-form" src="https://docs.google.com/forms/d/e/1FAIpQLSdgkJJEKOP8mYAsS-bI7vBawToSHH9PvLo2SQoDRMrRr9iIuw/viewform?embedded=true" title="Game Film intake questions" loading="eager">Loading…</iframe>
@@ -137,9 +155,9 @@
       <div class="gf-section__head">
         <div>
           <p class="label">Step 2 — Pick your time</p>
-          <h2>Book your 30-minute call.</h2>
+          <h2>Pick your time.</h2>
         </div>
-        <p>Pick the slot that works. You'll get a calendar invite with the video link.</p>
+        <p>Choose any open 30-minute slot. You'll get a calendar invite with the video link.</p>
       </div>
       <div class="gf-frame gf-frame--cal">
         <iframe id="gf-cal" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2THT0ECsqEQsvaZ_e2nnyDJ7U-0bfdahvKAzr21rkxcAZrpyAhAChC-YGVLmAqspfSZikm0rnm?gv=true" title="Book your Game Film call" loading="lazy"></iframe>
@@ -187,19 +205,45 @@
     var y = document.getElementById('yr'); if (y) y.textContent = new Date().getFullYear();
   })();
 
-  // When the form submits, Google reloads the iframe with its confirmation screen.
-  // That second load is our cue to mark step 1 done and bring step 2 into view.
+  // Progress rail. Each track fills as its section moves through the viewport;
+  // step 1 locks to "done" when the form submits (Google reloads the iframe with its confirmation).
   (function () {
+    var nav = document.querySelector('.nav'), rail = document.getElementById('gf-rail');
+    var tracks = { form: document.querySelector('[data-track="form"]'), book: document.querySelector('[data-track="book"]') };
+    var secs = { form: document.getElementById('form'), book: document.getElementById('book') };
+    var done = { form: false, book: false };
+    if (!rail || !tracks.form || !tracks.book) return;
+
+    function setNavH() { document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+    function progress(sec) {
+      var r = sec.getBoundingClientRect(), top = nav.offsetHeight + rail.offsetHeight;
+      var seen = (window.innerHeight - top) - r.top;          // how far the section has risen into the usable viewport
+      return Math.max(0, Math.min(1, seen / (r.height + (window.innerHeight - top) * 0.25)));
+    }
+    function paint() {
+      var p = { form: done.form ? 1 : progress(secs.form), book: done.book ? 1 : progress(secs.book) };
+      Object.keys(tracks).forEach(function (k) {
+        tracks[k].querySelector('.bar i').style.width = (p[k] * 100).toFixed(1) + '%';
+      });
+      var active = (p.form >= 0.98 || done.form) ? 'book' : 'form';
+      Object.keys(tracks).forEach(function (k) { tracks[k].classList.toggle('is-active', k === active && !done[k]); });
+    }
+    var ticking = false;
+    function onScroll() { if (ticking) return; ticking = true; requestAnimationFrame(function () { paint(); ticking = false; }); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { setNavH(); paint(); });
+    setNavH(); paint();
+
     var f = document.getElementById('gf-form'), loads = 0;
-    if (!f) return;
-    f.addEventListener('load', function () {
+    if (f) f.addEventListener('load', function () {
       loads += 1;
       if (loads < 2) return;
-      var steps = document.querySelectorAll('.gf-how__step');
-      if (steps.length > 1) { steps[0].classList.remove('is-now'); steps[1].classList.add('is-now'); }
+      done.form = true;
+      tracks.form.classList.add('is-done');
+      tracks.form.querySelector('.n').textContent = 'Done';
       f.style.height = '420px';
-      var book = document.getElementById('book');
-      if (book) book.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      paint();
+      if (secs.book) secs.book.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   })();
 </script>
