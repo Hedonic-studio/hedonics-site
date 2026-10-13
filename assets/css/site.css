@@ -571,7 +571,11 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 .term::after { content: ""; display: inline-block; width: 4px; height: 4px; margin: 0 0 9px 2px; background: var(--signal); vertical-align: baseline; }
 .term:hover { text-decoration: underline; text-decoration-color: var(--bone-70); text-underline-offset: 4px; }
 
-/* the definition glows red for a moment after the jump */
-.defn-sm { scroll-margin-top: 120px; transition: color 300ms ease, text-shadow 300ms ease; }
-.defn-sm.is-lit { color: var(--bone); text-shadow: 0 0 14px rgba(226,61,40,0.85), 0 0 2px rgba(226,61,40,0.9); }
-.defn-sm.is-lit .defn-sm__word { color: var(--signal); }
+/* Definition under the reel: headword always Signal so it reads as its own thing above the client names.
+   After the jump from the hero it lights up for a moment. */
+.defn-sm { scroll-margin-top: 120px; }
+.defn-sm__word { color: var(--signal); }
+.defn-sm, .defn-sm__word { transition: color 250ms ease, text-shadow 250ms ease; }
+.defn-sm.is-lit { color: var(--bone); }
+.defn-sm.is-lit .defn-sm__word { color: #FF6A55; text-shadow: 0 0 18px rgba(226,61,40,1), 0 0 6px rgba(226,61,40,0.9); }
+.defn-sm.is-lit em { text-shadow: 0 0 12px rgba(226,61,40,0.6); }

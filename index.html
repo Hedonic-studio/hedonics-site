@@ -256,7 +256,7 @@
     <div class="hero__reel">
       <div class="slot slot--16x9" data-footage="hero-reel" data-label="Hero reel · 16:9 · 30–60s showreel"></div>
     </div>
-    <p class="defn-sm" id="full-cycle" aria-label="What full cycle marketing means"><span class="defn-sm__word">full cy·cle mar·ket·ing</span> <span class="defn-sm__pos">noun</span> Offer, strategy, shoot, edit, ads, report. <em>One team, one plan, nothing lost in a handoff.</em></p>
+    <p class="defn-sm" id="full-cycle" aria-label="What full cycle marketing means"><span class="defn-sm__word">full cy·cle mar·ket·ing</span> <span class="defn-sm__pos">noun</span> Marketing that owns the outcome, from the offer through production and delivery to revenue. <em>Not a part of the process. The process.</em></p>
     <div class="clients">
       <p class="label">Worked with</p>
       <ul class="clients__list">
@@ -565,11 +565,15 @@
   (function () {
     var link = document.querySelector('.term'), defn = document.getElementById('full-cycle');
     if (!link || !defn) return;
+    var timer = null;
+    function light() {
+      defn.classList.remove('is-lit'); void defn.offsetWidth; defn.classList.add('is-lit');
+      clearTimeout(timer); timer = setTimeout(function () { defn.classList.remove('is-lit'); }, 1500);
+    }
     link.addEventListener('click', function (e) {
       e.preventDefault();
       defn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      defn.classList.remove('is-lit'); void defn.offsetWidth; defn.classList.add('is-lit');
-      setTimeout(function () { defn.classList.remove('is-lit'); }, 1600);
+      setTimeout(light, 650);  /* fire once the scroll has landed */
     });
   })();
 </script>
