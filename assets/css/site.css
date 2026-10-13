@@ -559,3 +559,13 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
   .cycle__step { flex: 1 1 30%; margin-bottom: 8px; }
   .cycle__break { align-self: flex-end; margin-bottom: 8px; }
 }
+
+/* "full cycle" in the hero lead points at its definition in section 01 */
+.term { color: inherit; text-decoration: underline; text-decoration-style: dotted; text-decoration-color: var(--signal); text-underline-offset: 4px; }
+.term:hover { text-decoration-style: solid; }
+
+/* Small dictionary line under "The plan" */
+.defn-sm { padding-top: 16px; border-top: 1px solid var(--rule-minor-on-ink); scroll-margin-top: 96px; font: 400 14px/21px Georgia, "Times New Roman", serif; color: var(--bone-70); }
+.defn-sm__word { font-weight: 700; color: var(--bone); }
+.defn-sm__pos { font-style: italic; margin-right: 6px; }
+.defn-sm em { color: var(--bone); }
