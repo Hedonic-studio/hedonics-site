@@ -44,7 +44,7 @@
 
   .gf-frame { margin-top: 24px; background: #fff; border: 1px solid var(--rule-major); }
   .gf-frame iframe { display: block; width: 100%; border: 0; }
-  .gf-frame--form iframe { height: 2440px; }
+  .gf-frame--form iframe { height: 3900px; }
   .gf-frame--cal iframe { height: 900px; }
   .gf-help { margin-top: 16px; font-size: 15px; line-height: 22px; color: var(--ink-65); }
   .gf-help a { color: inherit; }
@@ -64,8 +64,8 @@
     .gf-section { padding-top: 40px; }
     .gf-section:last-of-type { padding-bottom: 64px; }
     .gf-section__head h2 { font-size: 24px; line-height: 28px; }
-    /* On phones the form is taller; let the iframe scroll internally rather than guess. */
-    .gf-frame--form iframe { height: 1800px; }
+    /* Phones: the form wraps taller. Tall box beats an inner-scrolling iframe, which traps the thumb. */
+    .gf-frame--form iframe { height: 4400px; }
     .gf-frame--cal iframe { height: 980px; }
     .gf-assure p { font-size: 19px; line-height: 26px; }
   }
