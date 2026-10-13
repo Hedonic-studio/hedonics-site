@@ -565,8 +565,7 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 .term::after { content: ""; display: inline-block; width: 4px; height: 4px; margin: 0 0 9px 2px; background: var(--signal); vertical-align: baseline; }
 .term:hover { text-decoration: underline; text-decoration-color: var(--bone-70); text-underline-offset: 4px; }
 
-/* Small dictionary line under "The plan" */
-.defn-sm { padding-top: 16px; border-top: 1px solid var(--rule-minor-on-ink); scroll-margin-top: 96px; font: 400 14px/21px Georgia, "Times New Roman", serif; color: var(--bone-70); }
-.defn-sm__word { font-weight: 700; color: var(--bone); }
-.defn-sm__pos { font-style: italic; margin-right: 6px; }
-.defn-sm em { color: var(--bone); }
+/* Second entry in the About definition block */
+.defn__head--2, .defn__senses--2 { margin-top: 20px; }
+.defn__head--2 { scroll-margin-top: 120px; }
+@media (max-width: 760px) { .defn__senses--2 { margin-top: 0; } }
