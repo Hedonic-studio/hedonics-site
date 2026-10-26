@@ -579,3 +579,26 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 .defn-sm.is-lit { color: var(--bone); }
 .defn-sm.is-lit .defn-sm__word { color: #FF6A55; text-shadow: 0 0 18px rgba(226,61,40,1), 0 0 6px rgba(226,61,40,0.9); }
 .defn-sm.is-lit em { text-shadow: 0 0 12px rgba(226,61,40,0.6); }
+
+/* Oct 26 2026: the guarantee panel at the top of Services. It takes the only red border in the section;
+   the Ad Audit card drops to a bone rule so the two don't compete. The hero's "you get paid back" term
+   jumps here and the panel lights up the same way the full cycle definition does. */
+.ink .svc--feature { border-color: var(--rule-major-on-ink); }
+.guarantee { position: relative; padding: 40px; border: 1.5px solid var(--signal); scroll-margin-top: 112px; }
+.guarantee > * + * { margin-top: 14px; }
+.guarantee__label { margin-top: 0; }
+.guarantee__head { font: 600 32px/38px var(--font-display); letter-spacing: -0.02em; color: var(--bone); max-width: 760px; }
+.guarantee__hot { color: var(--signal); }
+.guarantee__body { font-size: 18px; line-height: 27px; color: var(--bone); max-width: 760px; }
+.guarantee__fine { font-size: 13px; line-height: 19px; color: var(--bone-70); max-width: 720px; }
+.guarantee, .guarantee__hot { transition: border-color 250ms ease, color 250ms ease, text-shadow 250ms ease, box-shadow 250ms ease; }
+.guarantee.is-lit { border-color: #FF6A55; box-shadow: 0 0 0 1px rgba(226,61,40,0.6), 0 0 32px rgba(226,61,40,0.45), inset 0 0 40px rgba(226,61,40,0.08); }
+.guarantee.is-lit .guarantee__hot { color: #FF6A55; text-shadow: 0 0 18px rgba(226,61,40,1), 0 0 6px rgba(226,61,40,0.9); }
+.pkg__g a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule-major-on-ink); text-underline-offset: 3px; }
+.pkg__g a:hover { text-decoration-color: currentColor; }
+.ink .pkg--feature .pkg__g a { text-decoration-color: var(--rule-major); }
+@media (max-width: 820px) {
+  .guarantee { padding: 24px; }
+  .guarantee__head { font-size: 26px; line-height: 31px; }
+  .guarantee__body { font-size: 16px; line-height: 24px; }
+}
