@@ -12,13 +12,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Ad Audit — Hedonics</title>
-<meta name="description" content="Send us the Meta ads that aren't working and we'll tell you why they're losing, live, for free. Answer the questions, pick a time, send your screenshots.">
+<meta name="description" content="Give us a read-only look at the Meta ads that aren't working and we'll tell you why they're losing, live, for free. Answer the questions, pick a time, share your ad account.">
 <link rel="canonical" href="https://hedonicsmarketing.studio/ad-audit/">
 <meta name="theme-color" content="#0E0E0F">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Free Ad Audit — Hedonics">
-<meta property="og:description" content="Send us the Meta ads that aren't working and we'll tell you why they're losing, live, for free.">
+<meta property="og:description" content="Give us a read-only look at the Meta ads that aren't working and we'll tell you why they're losing, live, for free.">
 <meta property="og:image" content="https://hedonicsmarketing.studio/assets/img/og-cover.png">
 <meta property="og:url" content="https://hedonicsmarketing.studio/ad-audit/">
 <meta name="twitter:card" content="summary_large_image">
@@ -29,7 +29,7 @@
 <link rel="preload" href="../assets/fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <style>
-  /* Game Film page. Everything below reuses site.css tokens; radius 0 throughout. */
+  /* Ad Audit page. Everything below reuses site.css tokens; radius 0 throughout. */
   .gf-hero { padding: 72px 0 56px; }
   .gf-hero .display { margin-top: 16px; max-width: 760px; }
   .gf-hero .lead { margin-top: 20px; max-width: 600px; }
@@ -53,12 +53,13 @@
   .gf-track.is-done .bar i { width: 100% !important; background: var(--bone); }
   .gf-track:hover { color: var(--bone); }
 
-  .gf-section { padding: 64px 0 0; scroll-margin-top: calc(var(--nav-h, 64px) + 72px); } /* clears the sticky nav + rail on #form / #book deep links */
+  .gf-section { padding: 64px 0 0; scroll-margin-top: calc(var(--nav-h, 64px) + 72px); } /* clears the sticky nav + rail on #form / #book / #share deep links */
   .gf-section:last-of-type { padding-bottom: 96px; }
   #book { padding-bottom: 0; }
   .gf-section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1.5px solid var(--rule-major); padding-top: 24px; }
   .gf-section__head h2 { font: 700 28px/32px var(--font-display); letter-spacing: -0.01em; margin-top: 8px; }
   .gf-section__head p { font-size: 15px; line-height: 22px; color: var(--ink-65); max-width: 420px; }
+  .gf-section__head p a { color: inherit; }
   .gf-section .label { color: var(--instrument-light); }
 
   .gf-frame { margin-top: 24px; background: #fff; border: 1px solid var(--rule-major); }
@@ -68,26 +69,90 @@
   .gf-help { margin-top: 16px; font-size: 15px; line-height: 22px; color: var(--ink-65); }
   .gf-help a { color: inherit; }
 
-  .gf-send { padding-bottom: 96px; }
-  .gf-video { display: none; margin-top: 32px; aspect-ratio: 16 / 9; background: var(--ink); border: 1.5px solid var(--rule-major); }
-  .gf-video.is-set { display: block; }
-  .gf-video iframe { display: block; width: 100%; height: 100%; border: 0; }
-  .gf-send__grid { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 24px; margin-top: 32px; }
-  .gf-send__col { padding: 24px; border: 1.5px solid var(--rule-major); font-size: 15px; line-height: 22px; }
-  .gf-send__col > * + * { margin-top: 10px; }
-  .gf-send__col strong { font-weight: 600; }
-  .gf-send__k { font: 600 11px/13px var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; color: var(--instrument-light); }
-  .gf-send__k--gap { margin-top: 24px; }
-  .gf-send__list { margin: 0; padding: 0; list-style: none; }
-  .gf-send__list li { padding: 8px 0; border-top: 1px solid var(--rule-minor); font: 600 16px/22px var(--font-display); letter-spacing: -0.01em; }
-  .gf-send__list li:first-child { margin-top: 4px; }
-  .gf-send__how { background: var(--ink); color: var(--bone); border-color: var(--ink); }
-  .gf-send__how .gf-send__k { color: var(--instrument-dark); }
-  .gf-send__steps { margin: 0; padding-left: 20px; list-style: decimal; color: var(--bone-70); }
-  .gf-send__steps li { padding: 4px 0; }
-  .gf-send__steps strong { color: var(--bone); }
-  .gf-send__note { font-size: 13px; line-height: 19px; color: var(--bone-70); }
-  .gf-send .gf-section__head p a { color: inherit; }
+  /* ---------- Step 3: share access ---------- */
+  .gf-share { padding-bottom: 96px; }
+
+  /* ID card: the one thing they have to paste, plus the trust line. */
+  .gf-id { margin-top: 32px; display: grid; grid-template-columns: 1.2fr 1fr; border: 1.5px solid var(--ink); }
+  .gf-id__key { background: var(--ink); color: var(--bone); padding: 24px; }
+  .gf-id__key .gf-k { color: var(--instrument-dark); }
+  .gf-id__row { margin-top: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .gf-id__num { font: 700 30px/34px var(--font-display); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
+  .gf-copy { font: 600 13px/16px var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 14px; border: 1.5px solid var(--bone); background: transparent; color: var(--bone); cursor: pointer; }
+  .gf-copy:hover { background: var(--bone); color: var(--ink); }
+  .gf-copy.is-done { border-color: var(--instrument-dark); background: var(--instrument-dark); color: #fff; }
+  .gf-id__name { margin-top: 12px; font-size: 15px; line-height: 22px; color: var(--bone-70); }
+  .gf-id__name strong { color: var(--bone); font-weight: 600; }
+  .gf-id__trust { padding: 24px; font-size: 15px; line-height: 22px; }
+  .gf-id__trust .gf-k { color: var(--instrument-light); }
+  .gf-id__trust ul { margin: 12px 0 0; padding: 0; list-style: none; }
+  .gf-id__trust li { padding: 8px 0; border-top: 1px solid var(--rule-minor); display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
+  .gf-id__trust li .yes { color: var(--instrument-light); font-weight: 700; }
+  .gf-id__trust li .no { color: var(--signal); font-weight: 700; }
+  .gf-k { font: 600 11px/13px var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; }
+
+  /* Slideshow: a screenshot stage with highlight boxes laid over it in page coordinates (percent), so they stay put at any width. */
+  .gf-show { margin-top: 32px; border: 1.5px solid var(--ink); background: var(--bone); }
+  .gf-show__stage { position: relative; aspect-ratio: 1564 / 784; overflow: hidden; background: #fff; border-bottom: 1.5px solid var(--ink); touch-action: pan-y; }
+  .gf-show__pan { position: absolute; inset: 0; transform-origin: 0 0; transition: transform 240ms var(--ease); will-change: transform; }
+  .gf-show__pan img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .gf-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 180ms var(--ease), visibility 0s 180ms; }
+  .gf-slide.is-on { opacity: 1; visibility: visible; transition: opacity 180ms var(--ease); }
+  .gf-hl { position: absolute; border: 3px solid var(--signal); box-shadow: 0 0 0 4px rgba(226,61,40,0.2), 0 6px 18px rgba(14,14,15,0.18); }
+  .gf-hl__n { position: absolute; top: -14px; left: -14px; width: 28px; height: 28px; display: grid; place-items: center; background: var(--signal); color: #fff; font: 700 14px/1 var(--font-display); }
+  .gf-hl--dim { border-color: var(--steel); box-shadow: none; border-style: dashed; }
+  .gf-hl--dim .gf-hl__n { background: var(--steel); }
+  .gf-show__pan.is-zoom { transition: transform 320ms var(--ease); }
+
+  .gf-show__foot { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; padding: 20px 24px 24px; }
+  .gf-show__step { font: 600 11px/13px var(--font-display); letter-spacing: 0.2em; text-transform: uppercase; color: var(--instrument-light); }
+  .gf-show__title { margin-top: 8px; font: 700 22px/26px var(--font-display); letter-spacing: -0.01em; }
+  .gf-show__text { margin-top: 8px; font-size: 15px; line-height: 22px; color: var(--ink-65); max-width: 640px; }
+  .gf-show__text strong { color: var(--ink); font-weight: 600; }
+  .gf-show__text a { color: inherit; }
+  .gf-show__cap { display: none; }
+  .gf-show__cap.is-on { display: block; }
+  .gf-show__nav { display: flex; gap: 8px; align-items: center; }
+  .gf-show__btn { width: 44px; height: 44px; display: grid; place-items: center; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
+  .gf-show__btn:hover { background: var(--ink); color: var(--bone); }
+  .gf-show__btn:disabled { opacity: 0.3; cursor: default; }
+  .gf-show__btn:disabled:hover { background: transparent; color: var(--ink); }
+  .gf-show__btn svg { width: 18px; height: 18px; }
+  .gf-show__dots { display: flex; gap: 6px; margin: 0 8px; }
+  .gf-show__dots button { width: 10px; height: 10px; padding: 0; border: 1.5px solid var(--ink); background: transparent; cursor: pointer; }
+  .gf-show__dots button.is-on { background: var(--signal); border-color: var(--signal); }
+  .gf-show__dots button:hover { background: var(--ink); }
+  .gf-show__open { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .gf-show__open .btn--sm { padding: 10px 16px; }
+  .gf-show__zoom { display: none; font-size: 13px; line-height: 18px; color: var(--ink-65); margin-top: 8px; }
+
+  /* Step 2 reminder + fallback */
+  .gf-after { margin-top: 24px; padding: 20px 24px; border: 1.5px solid var(--rule-major); font-size: 15px; line-height: 22px; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: baseline; }
+  .gf-after .gf-k { color: var(--instrument-light); }
+  .gf-after strong { font-weight: 600; }
+
+  .gf-fallback { margin-top: 48px; border-top: 1.5px solid var(--rule-major); padding-top: 24px; }
+  .gf-fallback { border-top: 1.5px solid var(--rule-major); }
+  .gf-fallback > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; font: 400 15px/22px var(--font-body); letter-spacing: 0; text-transform: none; }
+  .gf-fallback > summary::-webkit-details-marker { display: none; }
+  .gf-fallback > summary::after, .gf-fallback[open] > summary::after { content: none; }
+  .gf-fallback p { margin-top: 0; }                       /* cancels site.css `details p` spacing */
+  .gf-fallback > summary h3 + p { margin-top: 8px; }
+  .gf-fallback .gf-show__title { margin-top: 8px; color: var(--ink); }
+  .gf-fallback .gf-show__text { margin-top: 8px; }
+  .gf-fallback .gf-fallback__col p + p { margin-top: 10px; }
+  .gf-fallback > summary h3 { font: 700 22px/26px var(--font-display); letter-spacing: -0.01em; margin-top: 8px; }
+  .gf-fallback > summary p { font-size: 15px; line-height: 22px; color: var(--ink-65); max-width: 560px; margin-top: 8px; }
+  .gf-fallback__tog { font: 600 13px/16px var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 14px; border: 1.5px solid var(--ink); white-space: nowrap; }
+  .gf-fallback[open] .gf-fallback__tog::after { content: "Hide plan B −"; }
+  .gf-fallback:not([open]) .gf-fallback__tog::after { content: "Show plan B +"; }
+  .gf-fallback .gf-show { margin-top: 24px; }
+  .gf-fallback__list { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .gf-fallback__col { padding: 20px 24px; border: 1.5px solid var(--rule-major); font-size: 15px; line-height: 22px; }
+  .gf-fallback__col .gf-k { color: var(--instrument-light); }
+  .gf-fallback__col ul { margin: 10px 0 0; padding: 0; list-style: none; }
+  .gf-fallback__col li { padding: 8px 0; border-top: 1px solid var(--rule-minor); font: 600 16px/22px var(--font-display); letter-spacing: -0.01em; }
+  .gf-fallback__col p + p { margin-top: 10px; }
 
   .gf-assure { padding: 48px 0; border-top: 1px solid var(--rule-minor-on-ink); }
   .gf-assure p { font: 600 22px/30px var(--font-display); letter-spacing: -0.01em; max-width: 640px; }
@@ -110,8 +175,16 @@
     .gf-frame--form iframe { height: 4900px; }
     .gf-frame--cal iframe { height: 980px; }
     .gf-assure p { font-size: 19px; line-height: 26px; }
-    .gf-send__grid { grid-template-columns: 1fr; gap: 16px; }
-    .gf-send { padding-bottom: 64px; }
+    .gf-id { grid-template-columns: 1fr; }
+    .gf-id__num { font-size: 24px; line-height: 28px; letter-spacing: 0.04em; }
+    .gf-show__stage { aspect-ratio: 1 / 1; background: var(--bone); } /* phones: zoomed into the part that matters (see JS) */
+    .gf-show__foot { grid-template-columns: 1fr; padding: 16px; }
+    .gf-show__title { font-size: 19px; line-height: 24px; }
+    .gf-show__zoom { display: block; }
+    .gf-after { grid-template-columns: 1fr; gap: 8px; }
+    .gf-fallback > summary { grid-template-columns: 1fr; }
+    .gf-fallback__list { grid-template-columns: 1fr; gap: 16px; }
+    .gf-share { padding-bottom: 64px; }
   }
 </style>
 </head>
@@ -150,7 +223,7 @@
     <div class="wrap">
       <p class="label label--signal">Ad Audit · Free</p>
       <h1 class="display">Send us the ad<br>that isn't working.</h1>
-      <p class="lead">We'll tell you why it's losing and what we'd change, live, on a recorded 30-minute call. <strong>Three steps: answer the questions, pick a time, send us your ads.</strong> You leave with the three changes we'd make first.</p>
+      <p class="lead">We'll tell you why it's losing and what we'd change, live, on a recorded 30-minute call. <strong>Three steps: answer the questions, pick a time, share your ad account.</strong> You leave with the three changes we'd make first.</p>
       <ol class="cycle" aria-label="Creative, Offer, Audience, Landing page">
         <li class="cycle__step"><span class="cycle__n">01</span><span class="cycle__t">Creative</span></li>
         <li class="cycle__step"><span class="cycle__n">02</span><span class="cycle__t">Offer</span></li>
@@ -160,7 +233,7 @@
       </ol>
       <div class="gf-hero__ctas">
         <a class="btn" href="#form">Start the questions</a>
-        <a class="btn btn--ghost" href="#book">Pick your time</a>
+        <a class="btn btn--ghost" href="#share">How sharing works</a>
       </div>
     </div>
   </section>
@@ -169,7 +242,7 @@
     <div class="wrap gf-rail__inner">
       <a class="gf-track is-active" href="#form" data-track="form"><span class="n">Step 01</span><span class="t">Answer the questions</span><span class="bar"><i></i></span></a>
       <a class="gf-track" href="#book" data-track="book"><span class="n">Step 02</span><span class="t">Pick your time</span><span class="bar"><i></i></span></a>
-      <a class="gf-track" href="#send" data-track="send"><span class="n">Step 03</span><span class="t">Send your ads</span><span class="bar"><i></i></span></a>
+      <a class="gf-track" href="#share" data-track="send"><span class="n">Step 03</span><span class="t">Share your ad account</span><span class="bar"><i></i></span></a>
     </div>
   </div>
 
@@ -196,7 +269,7 @@
           <p class="label">Step 2 — Pick your time</p>
           <h2>Pick your time.</h2>
         </div>
-        <p>Choose any open 30-minute slot, at least 48 hours out so we have time with your ads. You'll get a calendar invite with the video link. <strong>Then reply to that invite with your screenshots and the ad itself.</strong> <a href="#send">What to send is below.</a></p>
+        <p>Choose any open 30-minute slot, at least 48 hours out so we have time with your ads. You'll get a calendar invite with the video link. <strong>Then share your ad account with us — two minutes, read-only.</strong> <a href="#share">How is below.</a></p>
       </div>
       <div class="gf-frame gf-frame--cal">
         <iframe id="gf-cal" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2THT0ECsqEQsvaZ_e2nnyDJ7U-0bfdahvKAzr21rkxcAZrpyAhAChC-YGVLmAqspfSZikm0rnm?gv=true" title="Book your ad audit call" loading="lazy"></iframe>
@@ -205,48 +278,198 @@
     </div>
   </section>
 
-  <section class="bone gf-section gf-send" id="send">
+  <section class="bone gf-section gf-share" id="share">
+    <span id="send" aria-hidden="true"></span><!-- old deep link -->
     <div class="wrap">
       <div class="gf-section__head">
         <div>
-          <p class="label">Step 3 — Send your ads</p>
-          <h2>Reply to your invite with three things.</h2>
+          <p class="label">Step 3 — Share your ad account</p>
+          <h2>Give us a read-only look at your ads.</h2>
         </div>
-        <p>Your most recent, highest-budget campaign is the one we want. Send as many campaigns and ad sets as you like. No ads to send yet? <a href="mailto:jake@hedonicsmarketing.studio?subject=Game%20Film">Email us</a> and we'll break down your whole marketing instead.</p>
+        <p>No screenshots, no exports. You add our Business ID as a partner in Meta Business settings with <strong>View performance</strong> turned on. We see the reports and the ads. We can't edit, spend, or see billing, and you can remove us after the call.</p>
       </div>
-      <!-- Walkthrough video. Paste a YouTube link into data-video and it appears above the cards; leave it empty and nothing renders. -->
-      <div class="gf-video" id="gf-video" data-video=""></div>
-      <div class="gf-send__grid" id="gf-send-grid">
-        <div class="gf-send__col">
-          <p class="gf-send__k">1 · A screenshot of the campaign</p>
-          <p>Last 30 days, with these columns showing:</p>
-          <ul class="gf-send__list">
-            <li>Amount spent</li>
-            <li>Results</li>
-            <li>Cost per result</li>
-            <li>CTR (link click-through rate)</li>
-            <li>CPM</li>
-            <li>Frequency</li>
+
+      <div class="gf-id">
+        <div class="gf-id__key">
+          <p class="gf-k">Our Business ID · paste this in step 3</p>
+          <div class="gf-id__row">
+            <span class="gf-id__num" id="gf-bizid">219773483686300</span>
+            <button class="gf-copy" type="button" id="gf-copy" data-id="219773483686300">Copy</button>
+          </div>
+          <p class="gf-id__name">Meta will show the name <strong>Hedonics Marketing</strong> once you paste it, so you know it's us.</p>
+        </div>
+        <div class="gf-id__trust">
+          <p class="gf-k">What “View performance” lets us do</p>
+          <ul>
+            <li><span class="yes">✓</span><span>See every campaign, ad set and ad, with full reporting</span></li>
+            <li><span class="yes">✓</span><span>Open the ads themselves — the creative, copy and landing page links</span></li>
+            <li><span class="no">✕</span><span>Edit anything, turn ads on or off, or create new ones</span></li>
+            <li><span class="no">✕</span><span>Spend your money, or see your billing and payment details</span></li>
+            <li><span class="no">✕</span><span>Touch your Page, Instagram or anything else you didn't tick</span></li>
           </ul>
         </div>
-        <div class="gf-send__col">
-          <p class="gf-send__k">2 · The same for each ad set</p>
-          <p>Click into the campaign, switch to the <strong>Ad sets</strong> tab, and take the same screenshot. One per ad set you want looked at.</p>
-          <p class="gf-send__k gf-send__k--gap">3 · The ad itself</p>
-          <p>The video or image that ran, as a file or a link. If it's a video, the file is better than a screen recording.</p>
+      </div>
+
+      <!-- Slideshow A: share access. Highlight boxes are in 1564×784 screenshot pixels; the JS converts them to percent. -->
+      <div class="gf-show" id="show-share" aria-roledescription="carousel" aria-label="How to share your ad account">
+        <div class="gf-show__stage" id="show-share-stage">
+          <div class="gf-show__pan" id="show-share-pan">
+            <div class="gf-slide" data-focus="782,392" data-zoom="1">
+              <img src="../assets/img/audit/partners.webp" width="1564" height="784" alt="Meta Business settings, Partners page. The Partners item in the left menu and the Add button, top right, are highlighted." loading="eager">
+              <span class="gf-hl" data-box="68,183,255,34"><span class="gf-hl__n">1</span></span>
+              <span class="gf-hl" data-box="1436,75,86,36"><span class="gf-hl__n">2</span></span>
+            </div>
+            <div class="gf-slide" data-focus="1400,140" data-zoom="2.4">
+              <img src="../assets/img/audit/add-menu.webp" width="1564" height="784" alt="The Add menu open, with 'Give a partner access to your assets' highlighted." loading="lazy">
+              <span class="gf-hl" data-box="1255,120,294,41"><span class="gf-hl__n">1</span></span>
+            </div>
+            <div class="gf-slide" data-focus="776,330" data-zoom="2">
+              <img src="../assets/img/audit/business-id.webp" width="1564" height="784" alt="The Add a new partner dialog with the Hedonics Marketing business ID typed into the Partner Business ID field, and the Next button highlighted." loading="lazy">
+              <span class="gf-hl" data-box="541,334,471,38"><span class="gf-hl__n">1</span></span>
+              <span class="gf-hl" data-box="952,379,60,35"><span class="gf-hl__n">2</span></span>
+            </div>
+            <div class="gf-slide" data-focus="610,215" data-zoom="2.2">
+              <img src="../assets/img/audit/pick-account.webp" width="1564" height="784" alt="The Assign assets dialog. Ad accounts is selected in the asset type list and the ad account's checkbox is ticked." loading="lazy">
+              <span class="gf-hl" data-box="409,166,166,30"><span class="gf-hl__n">1</span></span>
+              <span class="gf-hl" data-box="577,222,226,36"><span class="gf-hl__n">2</span></span>
+            </div>
+            <div class="gf-slide" data-focus="900,400" data-zoom="2.2">
+              <img src="../assets/img/audit/view-performance.webp" width="1564" height="784" alt="The permissions panel with only View performance switched on, and the Assign assets button highlighted." loading="lazy">
+              <span class="gf-hl" data-box="807,209,186,33"><span class="gf-hl__n">1</span></span>
+              <span class="gf-hl" data-box="1028,603,106,38"><span class="gf-hl__n">2</span></span>
+              <span class="gf-hl gf-hl--dim" data-box="807,173,270,30"></span>
+              <span class="gf-hl gf-hl--dim" data-box="807,324,330,46"></span>
+            </div>
+            <div class="gf-slide" data-focus="430,176" data-zoom="2.2">
+              <img src="../assets/img/audit/partners-done.webp" width="1564" height="784" alt="The Partners page with Hedonics Marketing listed as a partner. Click its name and Remove to take access away later." loading="lazy">
+              <span class="gf-hl" data-box="346,156,160,40"><span class="gf-hl__n">✓</span></span>
+            </div>
+          </div>
         </div>
-        <div class="gf-send__col gf-send__how">
-          <p class="gf-send__k">How to get those columns</p>
-          <ol class="gf-send__steps">
-            <li>Open <strong>Ads Manager</strong> and click the <strong>Campaigns</strong> tab.</li>
-            <li>Top right, set the date range to <strong>Last 30 days</strong>.</li>
-            <li>Click <strong>Columns</strong> → <strong>Customize columns</strong>.</li>
-            <li>Tick Amount spent, Results, Cost per result, CTR (link click-through rate), CPM, Frequency. Apply.</li>
-            <li>Sort by Amount spent so your biggest campaign is on top, and screenshot the table.</li>
-          </ol>
-          <p class="gf-send__note">On your phone, the Meta Ads app shows the same numbers under each campaign; screenshots from there are fine too.</p>
+        <div class="gf-show__foot">
+          <div class="gf-show__caps">
+            <div class="gf-show__cap is-on">
+              <p class="gf-show__step">1 of 6</p>
+              <p class="gf-show__title">Open Business settings and go to Partners.</p>
+              <p class="gf-show__text">In the left menu, under <strong>Users</strong>, click <strong>Partners</strong> (1). Then the blue <strong>Add</strong> button, top right (2). If Meta asks you to create a business portfolio first, do that; it's free and takes a minute.</p>
+              <div class="gf-show__open"><a class="btn btn--sm" href="https://business.facebook.com/latest/settings/partners" target="_blank" rel="noopener">Open Partners in Meta Business settings ↗</a></div>
+            </div>
+            <div class="gf-show__cap">
+              <p class="gf-show__step">2 of 6</p>
+              <p class="gf-show__title">Choose “Give a partner access to your assets.”</p>
+              <p class="gf-show__text">The first option in the menu (1). The other one, “Ask a partner to assign you their assets,” is the wrong direction; it would ask us to share with you.</p>
+            </div>
+            <div class="gf-show__cap">
+              <p class="gf-show__step">3 of 6</p>
+              <p class="gf-show__title">Paste our Business ID and click Next.</p>
+              <p class="gf-show__text">Paste <strong>219773483686300</strong> into the field (1), then <strong>Next</strong> (2). The copy button above puts it on your clipboard.</p>
+            </div>
+            <div class="gf-show__cap">
+              <p class="gf-show__step">4 of 6</p>
+              <p class="gf-show__title">Click Ad accounts, then tick your ad account.</p>
+              <p class="gf-show__text">In the asset type list, choose <strong>Ad accounts</strong> (1), then tick the account that's been running your ads (2). If there's more than one, the one with recent spend is the one we want. Leave Facebook Pages and everything else alone.</p>
+            </div>
+            <div class="gf-show__cap">
+              <p class="gf-show__step">5 of 6</p>
+              <p class="gf-show__title">Turn on View performance. Only that one. Then Assign assets.</p>
+              <p class="gf-show__text">Switch on <strong>View performance</strong> (1) and click <strong>Assign assets</strong> (2). Leave <strong>Manage campaigns</strong> and <strong>Manage ad accounts</strong> off (dashed) — those would let us edit or spend, and we don't want either.</p>
+            </div>
+            <div class="gf-show__cap">
+              <p class="gf-show__step">6 of 6</p>
+              <p class="gf-show__title">That's it. Hedonics Marketing now shows in your Partners list.</p>
+              <p class="gf-show__text">Reply “done” to your calendar invite and we'll start going through the account. After the call, removing us is two clicks on this same page: click <strong>Hedonics Marketing</strong> → <strong>Remove</strong>. Or keep us there if you'd like us to check back. Your call.</p>
+            </div>
+          </div>
+          <div class="gf-show__nav" aria-label="Slides">
+            <button class="gf-show__btn" type="button" data-dir="-1" aria-label="Previous step"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l-6 6 6 6"/></svg></button>
+            <div class="gf-show__dots" role="tablist"></div>
+            <button class="gf-show__btn" type="button" data-dir="1" aria-label="Next step"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 4l6 6-6 6"/></svg></button>
+          </div>
         </div>
       </div>
+      <p class="gf-show__zoom">On a phone we zoom each screenshot into the part that matters. Use the arrows to step through.</p>
+
+      <div class="gf-after">
+        <p class="gf-k">After you've shared</p>
+        <p><strong>Reply “done” to your calendar invite.</strong> We go through the account before the call, so please share at least a day ahead. Questions, or a step looks different on your screen? Email <a href="mailto:jake@hedonicsmarketing.studio">jake@hedonicsmarketing.studio</a> or text <a href="sms:+17209842894">(720) 984-2894</a>.</p>
+      </div>
+
+      <details class="gf-fallback" id="fallback">
+        <summary>
+          <div>
+            <p class="label">Can't share access?</p>
+            <h3>Send screenshots instead.</h3>
+            <p>If an old agency still owns the account, or you run ads straight from the Page without a business portfolio, this is plan B. Four screenshots and the ad file, replied to your invite.</p>
+          </div>
+          <span class="gf-fallback__tog" aria-hidden="true"></span>
+        </summary>
+
+        <!-- Slideshow B: screenshots fallback -->
+        <div class="gf-show" id="show-shots" aria-roledescription="carousel" aria-label="How to screenshot your ads">
+          <div class="gf-show__stage">
+            <div class="gf-show__pan">
+              <div class="gf-slide" data-focus="1200,330" data-zoom="2">
+                <img src="../assets/img/audit/date-range.webp" width="1564" height="784" alt="Ads Manager with the date picker open and the Maximum option highlighted." loading="lazy">
+                <span class="gf-hl" data-box="1236,134,282,36"><span class="gf-hl__n">1</span></span>
+                <span class="gf-hl" data-box="993,490,140,28"><span class="gf-hl__n">2</span></span>
+                <span class="gf-hl" data-box="1474,504,74,33"><span class="gf-hl__n">3</span></span>
+              </div>
+              <div class="gf-slide" data-focus="410,152" data-zoom="2">
+                <img src="../assets/img/audit/campaigns.webp" width="1564" height="784" alt="The Campaigns table in Ads Manager, with the Campaigns, Ad sets and Ads tabs highlighted." loading="lazy">
+                <span class="gf-hl" data-box="54,131,232,42"><span class="gf-hl__n">1</span></span>
+                <span class="gf-hl" data-box="289,131,232,42"><span class="gf-hl__n">2</span></span>
+                <span class="gf-hl" data-box="524,131,236,42"><span class="gf-hl__n">3</span></span>
+              </div>
+              <div class="gf-slide" data-focus="320,470" data-zoom="1.6">
+                <img src="../assets/img/audit/ads-tab.webp" width="1564" height="784" alt="The Ads tab, with the list of ads and their thumbnails highlighted." loading="lazy">
+                <span class="gf-hl" data-box="172,258,292,426"><span class="gf-hl__n">1</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="gf-show__foot">
+            <div class="gf-show__caps">
+              <div class="gf-show__cap is-on">
+                <p class="gf-show__step">1 of 3</p>
+                <p class="gf-show__title">Open Ads Manager and set the dates to Maximum.</p>
+                <p class="gf-show__text">Click the date range, top right (1), choose <strong>Maximum</strong> (2) and <strong>Update</strong> (3). That shows everything you've ever run; we'll find the recent push ourselves.</p>
+                <div class="gf-show__open"><a class="btn btn--sm" href="https://adsmanager.facebook.com/adsmanager/manage/campaigns" target="_blank" rel="noopener">Open Ads Manager ↗</a></div>
+              </div>
+              <div class="gf-show__cap">
+                <p class="gf-show__step">2 of 3</p>
+                <p class="gf-show__title">Screenshot each tab: Campaigns, Ad sets, Ads.</p>
+                <p class="gf-show__text">One screenshot of the table on <strong>Campaigns</strong> (1), one on <strong>Ad sets</strong> (2), one on <strong>Ads</strong> (3). The default columns are fine. If a table runs long, screenshot it in two halves; don't worry about making it pretty.</p>
+              </div>
+              <div class="gf-show__cap">
+                <p class="gf-show__step">3 of 3</p>
+                <p class="gf-show__title">Send the ad itself.</p>
+                <p class="gf-show__text">On the Ads tab, the ads that spent the most (1) are the ones we want to see. Send the video or image file that ran, or a link to the post. A file beats a screen recording.</p>
+              </div>
+            </div>
+            <div class="gf-show__nav" aria-label="Slides">
+              <button class="gf-show__btn" type="button" data-dir="-1" aria-label="Previous step"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l-6 6 6 6"/></svg></button>
+              <div class="gf-show__dots" role="tablist"></div>
+              <button class="gf-show__btn" type="button" data-dir="1" aria-label="Next step"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 4l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gf-fallback__list">
+          <div class="gf-fallback__col">
+            <p class="gf-k">Reply to your invite with</p>
+            <ul>
+              <li>Campaigns tab screenshot</li>
+              <li>Ad sets tab screenshot</li>
+              <li>Ads tab screenshot</li>
+              <li>The ad files, or links to the posts</li>
+            </ul>
+          </div>
+          <div class="gf-fallback__col">
+            <p class="gf-k">On your phone</p>
+            <p>The <strong>Meta Ads</strong> app shows the same numbers under each campaign, ad set and ad. Screenshots from there are fine. Set the date range to Maximum there too.</p>
+            <p>Never run ads at all? <a href="mailto:jake@hedonicsmarketing.studio?subject=Game%20Film">Email us</a> and we'll break down your whole marketing instead.</p>
+          </div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -294,7 +517,7 @@
   (function () {
     var nav = document.querySelector('.nav'), rail = document.getElementById('gf-rail');
     var tracks = { form: document.querySelector('[data-track="form"]'), book: document.querySelector('[data-track="book"]'), send: document.querySelector('[data-track="send"]') };
-    var secs = { form: document.getElementById('form'), book: document.getElementById('book'), send: document.getElementById('send') };
+    var secs = { form: document.getElementById('form'), book: document.getElementById('book'), send: document.getElementById('share') };
     var done = { form: false, book: false, send: false };
     if (!rail || !tracks.form || !tracks.book) return;
 
@@ -331,15 +554,85 @@
     });
   })();
 
-  // Walkthrough video slot: renders only when data-video holds a YouTube link.
+  // Copy the Business ID.
   (function () {
-    var v = document.getElementById('gf-video'); if (!v) return;
-    var m = (v.getAttribute('data-video') || '').match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);
-    if (!m) return;
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + m[1] + '?rel=0&modestbranding=1&playsinline=1';
-    f.allow = 'encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.loading = 'lazy'; f.title = 'How to find and send your ad stats';
-    v.appendChild(f); v.classList.add('is-set');
+    var b = document.getElementById('gf-copy'); if (!b) return;
+    var id = b.getAttribute('data-id'), label = b.textContent;
+    function flash(t) { b.textContent = t; b.classList.add('is-done'); setTimeout(function () { b.textContent = label; b.classList.remove('is-done'); }, 1800); }
+    b.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(id).then(function () { flash('Copied'); }, function () { fallback(); });
+      } else fallback();
+    });
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('gf-bizid'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); flash('Copied'); } catch (e) { flash('Select & copy'); }
+    }
+  })();
+
+  // Slideshows. Highlight boxes come in as screenshot pixels (x,y,w,h on a 1564×784 frame) and become percentages,
+  // so they stay on the right button at any width. On phones the stage zooms in around each slide's focus point.
+  (function () {
+    var W = 1564, H = 784;
+    function build(root) {
+      var stage = root.querySelector('.gf-show__stage'), pan = root.querySelector('.gf-show__pan');
+      var slides = Array.prototype.slice.call(root.querySelectorAll('.gf-slide'));
+      var caps = Array.prototype.slice.call(root.querySelectorAll('.gf-show__cap'));
+      var dots = root.querySelector('.gf-show__dots'), prev = root.querySelector('[data-dir="-1"]'), next = root.querySelector('[data-dir="1"]');
+      var i = 0, n = slides.length;
+
+      slides.forEach(function (s) {
+        Array.prototype.forEach.call(s.querySelectorAll('.gf-hl'), function (h) {
+          var b = (h.getAttribute('data-box') || '0,0,0,0').split(',').map(Number);
+          h.style.left = (b[0] / W * 100) + '%'; h.style.top = (b[1] / H * 100) + '%';
+          h.style.width = (b[2] / W * 100) + '%'; h.style.height = (b[3] / H * 100) + '%';
+        });
+      });
+      slides.forEach(function (_, k) {
+        var d = document.createElement('button'); d.type = 'button'; d.setAttribute('role', 'tab'); d.setAttribute('aria-label', 'Step ' + (k + 1));
+        d.addEventListener('click', function () { go(k); }); dots.appendChild(d);
+      });
+
+      function zoom() {
+        var phone = window.matchMedia('(max-width: 760px)').matches;
+        pan.classList.toggle('is-zoom', phone);
+        if (!phone) { pan.style.transform = ''; pan.style.width = ''; pan.style.height = ''; return; }
+        // Stage is square on phones; the screenshot is ~2:1. Each slide says how far to zoom (data-zoom) and
+        // where to look (data-focus, in screenshot pixels). Zoom 1 shows the whole screenshot, letterboxed.
+        var sw = stage.clientWidth, sh = stage.clientHeight;
+        var s = Math.max(1, parseFloat(slides[i].getAttribute('data-zoom') || '2.2'));
+        var pw = sw * s, ph = pw * H / W;                       // panned image size at that zoom
+        pan.style.width = pw + 'px'; pan.style.height = ph + 'px';
+        var f = (slides[i].getAttribute('data-focus') || (W / 2 + ',' + H / 2)).split(',').map(Number);
+        var tx = sw / 2 - f[0] / W * pw, ty = sh / 2 - f[1] / H * ph;
+        tx = Math.min(0, Math.max(sw - pw, tx));
+        ty = (ph <= sh) ? (sh - ph) / 2 : Math.min(0, Math.max(sh - ph, ty));
+        pan.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px)';
+      }
+      function go(k) {
+        i = Math.max(0, Math.min(n - 1, k));
+        slides.forEach(function (s, j) { s.classList.toggle('is-on', j === i); });
+        caps.forEach(function (c, j) { c.classList.toggle('is-on', j === i); });
+        Array.prototype.forEach.call(dots.children, function (d, j) { d.classList.toggle('is-on', j === i); d.setAttribute('aria-selected', String(j === i)); });
+        prev.disabled = i === 0; next.disabled = i === n - 1;
+        zoom();
+      }
+      prev.addEventListener('click', function () { go(i - 1); });
+      next.addEventListener('click', function () { go(i + 1); });
+      root.setAttribute('tabindex', '0');
+      root.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { go(i + 1); e.preventDefault(); } if (e.key === 'ArrowLeft') { go(i - 1); e.preventDefault(); } });
+      var x0 = null;
+      stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1)); }, { passive: true });
+      stage.addEventListener('click', function (e) { if (e.target.closest('a,button')) return; go(i + 1); });
+      window.addEventListener('resize', zoom);
+      go(0);
+      return { zoom: zoom };
+    }
+    var shows = Array.prototype.map.call(document.querySelectorAll('.gf-show'), build);
+    var fb = document.getElementById('fallback');
+    if (fb) fb.addEventListener('toggle', function () { shows.forEach(function (s) { s.zoom(); }); });
   })();
 </script>
 </body>
