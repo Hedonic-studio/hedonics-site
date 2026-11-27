@@ -169,7 +169,7 @@
     });
   }
 
-  /* ---------- Mobile button: hide it while a Game Film button is already on screen ---------- */
+  /* ---------- Mobile button: hide it while a start button is already on screen ---------- */
   var mcta = document.querySelector(".mobile-cta");
   if (mcta && "IntersectionObserver" in window) {
     var onScreen = [];
@@ -181,7 +181,7 @@
       });
       mcta.classList.toggle("is-hidden", onScreen.length > 0);
     });
-    [".hero__ctas", "#svc-game-film", "#game-film"].forEach(function (sel) {
+    [".hero__ctas", "#svc-test-batch", "#start"].forEach(function (sel) {
       var el = document.querySelector(sel); if (el) io.observe(el);
     });
   }
