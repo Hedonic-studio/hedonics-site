@@ -403,6 +403,7 @@ details p { margin-top: 12px; font-size: 15px; line-height: 23px; color: var(--i
 .split__body--cont { grid-column: 2; margin-top: 32px; }
 .pkg-wide { grid-column: 1 / -1; margin-top: 32px; }
 .pkg-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1.5px solid var(--rule-major); }
+.pkg-grid--3 { grid-template-columns: repeat(3, 1fr); }
 .pkg { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; padding: 0 20px; border-left: 1.5px solid var(--rule-major); scroll-margin-top: 96px; }
 .pkg:first-child { border-left: 0; }
 .pkg > * { padding: 14px 0; border-top: 1px solid var(--rule-minor); }
